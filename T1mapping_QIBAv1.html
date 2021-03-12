@@ -184,7 +184,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/T1mapping_QIBAv1.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/OSIPI/DCE-DSC-MRI_CodeCollection/demo?urlpath=tree/notebooks/T1mapping_QIBAv1.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -459,8 +459,8 @@ The phantom consists of a 2D grid containing 7 <span class="math notranslate noh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.25 s, sys: 11.6 ms, total: 1.26 s
-Wall time: 1.25 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 766 ms, sys: 10.1 ms, total: 777 ms
+Wall time: 767 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_9_1.png" src="_images/T1mapping_QIBAv1_9_1.png" />
@@ -473,13 +473,13 @@ Wall time: 1.25 s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">sydney_lls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="n">t1data</span><span class="o">.</span><span class="n">signal</span><span class="p">,</span> <span class="n">t1data</span><span class="o">.</span><span class="n">fa</span><span class="p">,</span> <span class="n">t1data</span><span class="o">.</span><span class="n">TR</span><span class="p">,</span> <span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;sydney&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">)</span>
-<span class="n">show_maps</span><span class="p">(</span><span class="n">sydney_lls</span><span class="p">)</span>
+<span class="n">show_maps</span><span class="p">(</span><span class="n">sydney_lls</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 4s, sys: 96.4 ms, total: 1min 4s
-Wall time: 1min 3s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 49.7 s, sys: 44.1 ms, total: 49.7 s
+Wall time: 49.6 s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_11_1.png" src="_images/T1mapping_QIBAv1_11_1.png" />
@@ -492,13 +492,13 @@ Wall time: 1min 3s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">mcgill_lls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="n">t1data</span><span class="o">.</span><span class="n">signal</span><span class="p">,</span> <span class="n">t1data</span><span class="o">.</span><span class="n">fa</span><span class="p">,</span> <span class="n">t1data</span><span class="o">.</span><span class="n">TR</span><span class="p">,</span> <span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;mcgill&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">)</span>
-<span class="n">show_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">)</span>
+<span class="n">show_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 167 ms, sys: 3.99 ms, total: 171 ms
-Wall time: 157 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 110 ms, sys: 16 ms, total: 126 ms
+Wall time: 116 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_13_1.png" src="_images/T1mapping_QIBAv1_13_1.png" />
@@ -514,13 +514,13 @@ Wall time: 157 ms
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">edinburgh_nls</span> <span class="o">=</span>  <span class="n">vfa_fit</span><span class="p">(</span><span class="n">t1data</span><span class="o">.</span><span class="n">signal</span><span class="p">,</span> <span class="n">t1data</span><span class="o">.</span><span class="n">fa</span><span class="p">,</span> <span class="n">t1data</span><span class="o">.</span><span class="n">TR</span><span class="p">,</span> <span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;edinburgh&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;nonlinear&quot;</span><span class="p">)</span>
-<span class="n">show_maps</span><span class="p">(</span><span class="n">edinburgh_nls</span><span class="p">)</span>
+<span class="n">show_maps</span><span class="p">(</span><span class="n">edinburgh_nls</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 30 s, sys: 23.8 ms, total: 30.1 s
-Wall time: 30 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 19.6 s, sys: 31.8 ms, total: 19.6 s
+Wall time: 19.6 s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_16_1.png" src="_images/T1mapping_QIBAv1_16_1.png" />
@@ -533,13 +533,13 @@ Wall time: 30 s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span> 
 <span class="n">sydney_nls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="n">t1data</span><span class="o">.</span><span class="n">signal</span><span class="p">,</span> <span class="n">t1data</span><span class="o">.</span><span class="n">fa</span><span class="p">,</span> <span class="n">t1data</span><span class="o">.</span><span class="n">TR</span><span class="p">,</span> <span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;sydney&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;nonlinear&quot;</span><span class="p">)</span>
-<span class="n">show_maps</span><span class="p">(</span><span class="n">sydney_nls</span><span class="p">)</span>
+<span class="n">show_maps</span><span class="p">(</span><span class="n">sydney_nls</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 31s, sys: 164 ms, total: 1min 31s
-Wall time: 1min 31s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 7s, sys: 59.9 ms, total: 1min 7s
+Wall time: 1min 7s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_18_1.png" src="_images/T1mapping_QIBAv1_18_1.png" />
@@ -552,13 +552,13 @@ Wall time: 1min 31s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">mcgill_nls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="n">t1data</span><span class="o">.</span><span class="n">signal</span><span class="p">,</span> <span class="n">t1data</span><span class="o">.</span><span class="n">fa</span><span class="p">,</span> <span class="n">t1data</span><span class="o">.</span><span class="n">TR</span><span class="p">,</span> <span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;mcgill&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;nonlinear&quot;</span><span class="p">)</span>
-<span class="n">show_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">)</span>
+<span class="n">show_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 237 ms, sys: 84.2 ms, total: 321 ms
-Wall time: 177 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 197 ms, sys: 64 ms, total: 261 ms
+Wall time: 134 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_20_1.png" src="_images/T1mapping_QIBAv1_20_1.png" />
@@ -591,8 +591,8 @@ Wall time: 177 ms
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">edinburgh_nls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Edinburgh NLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">)</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">sydney_nls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Sydney NLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">)</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">edinburgh_nls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Edinburgh NLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">);</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">sydney_nls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Sydney NLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">);</span>
 <span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;McGill NLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -609,7 +609,7 @@ Wall time: 177 ms
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">edinburgh_lls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">)</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">edinburgh_lls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">);</span>
 <span class="n">show_error_maps</span><span class="p">(</span><span class="n">edinburgh_nls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>

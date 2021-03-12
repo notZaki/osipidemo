@@ -181,7 +181,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/T1mapping_RIDER.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/OSIPI/DCE-DSC-MRI_CodeCollection/demo?urlpath=tree/notebooks/T1mapping_RIDER.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -429,8 +429,8 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - McGill
-CPU times: user 21.9 ms, sys: 4.34 ms, total: 26.2 ms
-Wall time: 25.4 ms
+CPU times: user 20.1 ms, sys: 4.01 ms, total: 24.1 ms
+Wall time: 23.5 ms
 
 NLS - McGill
 </pre></div>
@@ -443,8 +443,8 @@ NLS - McGill
   solB = (BB * ZAbar - BAbar * BZ) / determinant
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 345 ms, sys: 142 ms, total: 486 ms
-Wall time: 263 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 315 ms, sys: 109 ms, total: 424 ms
+Wall time: 228 ms
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>../src/original/T1_mapping/McGill/vfa.py:68: RuntimeWarning: invalid value encountered in log
@@ -455,8 +455,8 @@ Wall time: 263 ms
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">)</span>
-<span class="n">show_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Nonlinear least squares&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">);</span>
+<span class="n">show_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Nonlinear least squares&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -484,15 +484,15 @@ Wall time: 263 ms
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - Edinburgh
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.64 s, sys: 43.3 ms, total: 6.69 s
-Wall time: 6.65 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.96 s, sys: 75.6 ms, total: 4.03 s
+Wall time: 3.88 s
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_maps</span><span class="p">(</span><span class="n">edinburgh_lls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_maps</span><span class="p">(</span><span class="n">edinburgh_lls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -516,13 +516,20 @@ Wall time: 6.65 s
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - Sydney
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4min 50s, sys: 171 ms, total: 4min 50s
+Wall time: 4min 50s
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_maps</span><span class="p">(</span><span class="n">sydney_lls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_maps</span><span class="p">(</span><span class="n">sydney_lls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/T1mapping_RIDER_14_0.png" src="_images/T1mapping_RIDER_14_0.png" />
 </div>
 </div>
 </div>

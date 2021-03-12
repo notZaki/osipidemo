@@ -184,7 +184,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/T1mapping_QIBAv2.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/OSIPI/DCE-DSC-MRI_CodeCollection/demo?urlpath=tree/notebooks/T1mapping_QIBAv2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -250,14 +250,7 @@
     <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://osf.io/3hwtc/download&quot;</span><span class="p">,</span> <span class="n">t1file</span><span class="p">)</span>
 
 <span class="c1"># Open file</span>
-
 <span class="n">t1data</span> <span class="o">=</span> <span class="n">mat73</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">t1file</span><span class="p">)</span>
-<span class="n">t1data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;M0&#39;, &#39;T1&#39;, &#39;TR&#39;, &#39;fa&#39;, &#39;signal&#39;])
 </pre></div>
 </div>
 </div>
@@ -363,14 +356,14 @@ However, unlike QIBA v1, the v2 phantom has noise with <span class="math notrans
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - McGill
-CPU times: user 23.1 ms, sys: 4.61 ms, total: 27.8 ms
-Wall time: 27 ms
+CPU times: user 23 ms, sys: 0 ns, total: 23 ms
+Wall time: 22.6 ms
  
 NLS - McGill
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 313 ms, sys: 100 ms, total: 413 ms
-Wall time: 222 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 308 ms, sys: 116 ms, total: 425 ms
+Wall time: 228 ms
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>../src/original/T1_mapping/McGill/vfa.py:68: RuntimeWarning: invalid value encountered in log
@@ -381,80 +374,74 @@ Wall time: 222 ms
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">)</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">);</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/T1mapping_QIBAv2_7_0.png" src="_images/T1mapping_QIBAv2_7_0.png" />
 <img alt="_images/T1mapping_QIBAv2_7_1.png" src="_images/T1mapping_QIBAv2_7_1.png" />
-<img alt="_images/T1mapping_QIBAv2_7_2.png" src="_images/T1mapping_QIBAv2_7_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">)</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">);</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/T1mapping_QIBAv2_8_0.png" src="_images/T1mapping_QIBAv2_8_0.png" />
 <img alt="_images/T1mapping_QIBAv2_8_1.png" src="_images/T1mapping_QIBAv2_8_1.png" />
-<img alt="_images/T1mapping_QIBAv2_8_2.png" src="_images/T1mapping_QIBAv2_8_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">)</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">);</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/T1mapping_QIBAv2_9_0.png" src="_images/T1mapping_QIBAv2_9_0.png" />
 <img alt="_images/T1mapping_QIBAv2_9_1.png" src="_images/T1mapping_QIBAv2_9_1.png" />
-<img alt="_images/T1mapping_QIBAv2_9_2.png" src="_images/T1mapping_QIBAv2_9_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">)</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">);</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/T1mapping_QIBAv2_10_0.png" src="_images/T1mapping_QIBAv2_10_0.png" />
 <img alt="_images/T1mapping_QIBAv2_10_1.png" src="_images/T1mapping_QIBAv2_10_1.png" />
-<img alt="_images/T1mapping_QIBAv2_10_2.png" src="_images/T1mapping_QIBAv2_10_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">)</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">);</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/T1mapping_QIBAv2_11_0.png" src="_images/T1mapping_QIBAv2_11_0.png" />
 <img alt="_images/T1mapping_QIBAv2_11_1.png" src="_images/T1mapping_QIBAv2_11_1.png" />
-<img alt="_images/T1mapping_QIBAv2_11_2.png" src="_images/T1mapping_QIBAv2_11_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">)</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">);</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/T1mapping_QIBAv2_12_0.png" src="_images/T1mapping_QIBAv2_12_0.png" />
 <img alt="_images/T1mapping_QIBAv2_12_1.png" src="_images/T1mapping_QIBAv2_12_1.png" />
-<img alt="_images/T1mapping_QIBAv2_12_2.png" src="_images/T1mapping_QIBAv2_12_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
