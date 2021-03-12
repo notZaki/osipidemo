@@ -36,19 +36,19 @@ plt.style.use('https://gist.github.com/notZaki/8bfb049230e307f4432fd68d24c603a1/
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
 [0;32m<ipython-input-2-38d7eef58eb7>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0;32mimport[0m [0moriginal[0m[0;34m.[0m[0mT1_mapping[0m[0;34m.[0m[0mMJT_EdinburghUK[0m[0;34m.[0m[0mt1[0m [0;32mas[0m [0medinburgh[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0;32mimport[0m [0moriginal[0m[0;34m.[0m[0mT1_mapping[0m[0;34m.[0m[0mST_SydneyAus[0m[0;34m.[0m[0mVFAT1mapping[0m [0;32mas[0m [0msydney[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;32mimport[0m [0moriginal[0m[0;34m.[0m[0mT1_mapping[0m[0;34m.[0m[0mMcGill[0m[0;34m.[0m[0mvfa[0m [0;32mas[0m [0mmcgill[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      1[0m [0;32mimport[0m [0moriginal[0m[0;34m.[0m[0mT1_mapping[0m[0;34m.[0m[0mMJT_EdinburghUK[0m[0;34m.[0m[0mt1[0m [0;32mas[0m [0medinburgh[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mimport[0m [0moriginal[0m[0;34m.[0m[0mT1_mapping[0m[0;34m.[0m[0mST_SydneyAus[0m[0;34m.[0m[0mVFAT1mapping[0m [0;32mas[0m [0msydney[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mimport[0m [0moriginal[0m[0;34m.[0m[0mT1_mapping[0m[0;34m.[0m[0mMcGill[0m[0;34m.[0m[0mvfa[0m [0;32mas[0m [0mmcgill[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      4[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      5[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m~/work/DCE-DSC-MRI_CodeCollection/DCE-DSC-MRI_CodeCollection/src/original/T1_mapping/MJT_EdinburghUK/t1.py[0m in [0;36m<module>[0;34m[0m
-[1;32m     14[0m [0;34m[0m[0m
-[1;32m     15[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 16[0;31m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0moptimize[0m [0;32mimport[0m [0mcurve_fit[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     17[0m [0;34m[0m[0m
-[1;32m     18[0m [0;32mfrom[0m [0;34m.[0m [0;32mimport[0m [0msignal[0m[0;34m[0m[0;34m[0m[0m
+[0;32m~/work/DCE-DSC-MRI_CodeCollection/DCE-DSC-MRI_CodeCollection/src/original/T1_mapping/ST_SydneyAus/VFAT1mapping.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     24[0m [0;31m#  Import required packages[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     25[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 26[0;31m [0;32mfrom[0m [0mlmfit[0m [0;32mimport[0m [0mModel[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     27[0m [0;34m[0m[0m
+[1;32m     28[0m [0;31m# Nonlinear SPGR equation definition[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'scipy'
-ModuleNotFoundError: No module named 'scipy'
+[0;31mModuleNotFoundError[0m: No module named 'lmfit'
+ModuleNotFoundError: No module named 'lmfit'
 
