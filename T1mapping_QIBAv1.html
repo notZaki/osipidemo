@@ -119,6 +119,25 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="guidelines.html">
+   Guidelines for code contribution
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="localguide.html">
+     Create a copy of the respository and contribute changes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="localtests.html">
+     Creating a Python test file
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -184,7 +203,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/OSIPI/DCE-DSC-MRI_CodeCollection/demo?urlpath=tree/notebooks/T1mapping_QIBAv1.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/OSIPI/DCE-DSC-MRI_CodeCollection/demo?urlpath=lab/tree/notebooks/T1mapping_QIBAv1.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -459,8 +478,8 @@ The phantom consists of a 2D grid containing 7 <span class="math notranslate noh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 766 ms, sys: 10.1 ms, total: 777 ms
-Wall time: 767 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.16 s, sys: 99.7 ms, total: 1.26 s
+Wall time: 1.18 s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_9_1.png" src="_images/T1mapping_QIBAv1_9_1.png" />
@@ -478,8 +497,8 @@ Wall time: 767 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 49.7 s, sys: 44.1 ms, total: 49.7 s
-Wall time: 49.6 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 58.9 s, sys: 64.9 ms, total: 59 s
+Wall time: 58.8 s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_11_1.png" src="_images/T1mapping_QIBAv1_11_1.png" />
@@ -497,8 +516,8 @@ Wall time: 49.6 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 110 ms, sys: 16 ms, total: 126 ms
-Wall time: 116 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 143 ms, sys: 8.05 ms, total: 151 ms
+Wall time: 138 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_13_1.png" src="_images/T1mapping_QIBAv1_13_1.png" />
@@ -519,8 +538,8 @@ Wall time: 116 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 19.6 s, sys: 31.8 ms, total: 19.6 s
-Wall time: 19.6 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 28.6 s, sys: 88 ms, total: 28.7 s
+Wall time: 28.6 s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_16_1.png" src="_images/T1mapping_QIBAv1_16_1.png" />
@@ -537,13 +556,6 @@ Wall time: 19.6 s
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 7s, sys: 59.9 ms, total: 1min 7s
-Wall time: 1min 7s
-</pre></div>
-</div>
-<img alt="_images/T1mapping_QIBAv1_18_1.png" src="_images/T1mapping_QIBAv1_18_1.png" />
-</div>
 </div>
 </div>
 <div class="section" id="id3">
@@ -555,13 +567,6 @@ Wall time: 1min 7s
 <span class="n">show_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 197 ms, sys: 64 ms, total: 261 ms
-Wall time: 134 ms
-</pre></div>
-</div>
-<img alt="_images/T1mapping_QIBAv1_20_1.png" src="_images/T1mapping_QIBAv1_20_1.png" />
 </div>
 </div>
 </div>
@@ -579,11 +584,6 @@ Wall time: 134 ms
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/T1mapping_QIBAv1_23_0.png" src="_images/T1mapping_QIBAv1_23_0.png" />
-<img alt="_images/T1mapping_QIBAv1_23_1.png" src="_images/T1mapping_QIBAv1_23_1.png" />
-<img alt="_images/T1mapping_QIBAv1_23_2.png" src="_images/T1mapping_QIBAv1_23_2.png" />
-</div>
 </div>
 </div>
 <div class="section" id="id5">
@@ -597,11 +597,6 @@ Wall time: 134 ms
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/T1mapping_QIBAv1_25_0.png" src="_images/T1mapping_QIBAv1_25_0.png" />
-<img alt="_images/T1mapping_QIBAv1_25_1.png" src="_images/T1mapping_QIBAv1_25_1.png" />
-<img alt="_images/T1mapping_QIBAv1_25_2.png" src="_images/T1mapping_QIBAv1_25_2.png" />
-</div>
 </div>
 </div>
 <div class="section" id="linear-vs-non-linear-fitting">
@@ -613,10 +608,6 @@ Wall time: 134 ms
 <span class="n">show_error_maps</span><span class="p">(</span><span class="n">edinburgh_nls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/T1mapping_QIBAv1_27_0.png" src="_images/T1mapping_QIBAv1_27_0.png" />
-<img alt="_images/T1mapping_QIBAv1_27_1.png" src="_images/T1mapping_QIBAv1_27_1.png" />
 </div>
 </div>
 </div>

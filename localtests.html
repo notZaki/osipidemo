@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>T1 mapping &#8212; OSIPI Code</title>
+    <title>Creating a Python test file &#8212; OSIPI Code</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -52,12 +52,10 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="QIBA v1" href="T1mapping_QIBAv1.html" />
-    <link rel="prev" title="OSIPI Code Demo" href="intro.html" />
+    <link rel="next" title="&lt;no title&gt;" href="contributors.html" />
+    <link rel="prev" title="Create a copy of the respository and contribute changes" href="localguide.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -95,8 +93,8 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active collapsible-parent">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="T1mapping.html">
    T1 mapping
   </a>
   <ul class="collapse-ul">
@@ -119,18 +117,18 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="guidelines.html">
    Guidelines for code contribution
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="localguide.html">
      Create a copy of the respository and contribute changes
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="localtests.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Creating a Python test file
     </a>
    </li>
@@ -178,7 +176,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/T1mapping.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/localtests.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -203,6 +201,43 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-pre-requisites-dependencies">
+   Installing pre-requisites / dependencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-test-file">
+   Creating a test file
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-file-contents">
+     Test File Contents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executing-a-test">
+     Executing a test
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#useful-links-for-unit-testing-with-python">
+   Useful links for unit testing with Python
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -211,23 +246,88 @@
         
               <div>
                 
-  <div class="section" id="t1-mapping">
-<h1>T1 mapping<a class="headerlink" href="#t1-mapping" title="Permalink to this headline">¶</a></h1>
-<p>The MRI signal in a spoiled gradient recalled echo is described by:</p>
-<div class="math notranslate nohighlight">
-\[
-S = M_0 \sin(\alpha) \frac{1 - \exp(-TR/T_1)}{1 - \cos(\alpha) \exp(-TR/T_1)} \exp(-TE/T_2)
-\]</div>
-<p>The acquisition parameters are the flip angle <span class="math notranslate nohighlight">\(\alpha\)</span>, repetition time <span class="math notranslate nohighlight">\(TR\)</span> and echo time <span class="math notranslate nohighlight">\(TE\)</span>—these are controlled by the scanner and are known<a class="footnote-reference brackets" href="#id2" id="id1">1</a>.
-The goal of T1 mapping is to estimate the tissue-specific parameters—the magnetization <span class="math notranslate nohighlight">\(M_0\)</span> and spin-lattice relaxation time <span class="math notranslate nohighlight">\(T_1\)</span>.</p>
-<div class="toctree-wrapper compound">
+  <div class="section" id="creating-a-python-test-file">
+<h1>Creating a Python test file<a class="headerlink" href="#creating-a-python-test-file" title="Permalink to this headline">¶</a></h1>
+<p>This guide briefly describes how to get started with writing a unit test in Python using <code class="docutils literal notranslate"><span class="pre">pytest</span></code></p>
+<div class="section" id="installing-pre-requisites-dependencies">
+<h2>Installing pre-requisites / dependencies<a class="headerlink" href="#installing-pre-requisites-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Testing is performed using <code class="docutils literal notranslate"><span class="pre">pytest</span></code> and can be installed using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install -U pytest
+</pre></div>
 </div>
-<hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Let’s ignore B1 effects for now.</p>
-</dd>
-</dl>
+<p>or with the <code class="docutils literal notranslate"><span class="pre">conda</span></code> package manager as shown below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge pytest
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy</span></code> are commonly used scientific packages that can similary be installed using <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code> package managers.</p>
+</div>
+<div class="section" id="creating-a-test-file">
+<h2>Creating a test file<a class="headerlink" href="#creating-a-test-file" title="Permalink to this headline">¶</a></h2>
+<p>Let’s assume for our purpose, all the source code is located in a folder <strong>src</strong>, and all the test code is located in a folder <strong>test</strong>.</p>
+<p>The <strong>test</strong> file corresponding to the <strong>src</strong> file to be tested, is named by either adding the prefix <em><strong>test_</strong></em> or the suffix <em><strong>_test</strong></em> to the name of the <strong>src</strong> file. In our case, the <em><strong>test_</strong></em> nomenclature has been adopted.</p>
+<div class="section" id="test-file-contents">
+<h3>Test File Contents<a class="headerlink" href="#test-file-contents" title="Permalink to this headline">¶</a></h3>
+<p>An example test file is shown as follows. Details on the test-specific code can be found on <a class="reference external" href="https://docs.pytest.org/en/stable/getting-started.html">Pytest Docs</a>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Example 1:test_OSIPItf.py
+
+def capital_case(x):
+    return x.capitalize()
+
+def test_capital_case():
+    assert capital_case(&#39;perfusion&#39;) == &#39;Perfusion&#39;
+</pre></div>
+</div>
+<p>It is important to note that the <em>test_</em> prefix convention use continues within the test file as well to denote which functions perform the test routines. In another example shown below, the test cases and the functions being tested are locted in different files.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Example 2: test_example_functions.py
+
+from src.example_functions import add, remove_spaces
+import pytest
+
+@pytest.mark.parametrize(&#39;x, y, result&#39;, [
+    (10,10,20),
+    (12,0,12),
+    (-1,-6,-7)
+    ])
+def test_add(x, y, result):
+    assert add(x,y) == result
+
+@pytest.mark.parametrize(&#39;data, result&#39;, [
+    (&#39;a b&#39;, &#39;ab&#39;),
+    (&#39;first last&#39;, &#39;firstlast&#39;)
+    ])
+def test_remove_spaces(data,result):
+    assert remove_spaces(data) == result
+</pre></div>
+</div>
+</div>
+<div class="section" id="executing-a-test">
+<h3>Executing a test<a class="headerlink" href="#executing-a-test" title="Permalink to this headline">¶</a></h3>
+<p>The results of the test can then be obtained using <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">pytest</span></code> at the command line. If we perform this for Example 1, we see the following output:
+<img alt="Test Pass" src="_images/ex1_testpass.png" />
+Now, if example 1 were modified to</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Example 1:test_OSIPItf.py
+
+def capital_case(x):
+    return x.capitalize()
+
+def test_capital_case():
+    assert capital_case(&#39;perfusion&#39;) == &#39;Perfusion&#39;
+    assert capital_case(&#39;osipi&#39;) == &#39;OSIPI&#39;
+</pre></div>
+</div>
+<p>the output of <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">pytest</span></code> would result in a filed test as shown below.<br />
+<img alt="Test Fail" src="_images/ex1_testfail.png" />
+As indicated in the failure message, the test failed for the case where the output of <code class="docutils literal notranslate"><span class="pre">capital_case('osipi')</span></code> - the expected output <em>OSIPI</em> is different from the function output <em>Osipi</em>.</p>
+</div>
+</div>
+<div class="section" id="useful-links-for-unit-testing-with-python">
+<h2>Useful links for unit testing with Python<a class="headerlink" href="#useful-links-for-unit-testing-with-python" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="https://docs.pytest.org/en/stable/reference.html">Pytest API</a></p></li>
+<li><p><a class="reference external" href="https://buildmedia.readthedocs.org/media/pdf/pytest/latest/pytest.pdf">Pytest documentation</a></p></li>
+<li><p><a class="reference external" href="https://realpython.com/python-testing/">Basics of Unit Testing</a></p></li>
+</ol>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -255,8 +355,8 @@ The goal of T1 mapping is to estimate the tissue-specific parameters—the magne
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">OSIPI Code Demo</a>
-    <a class='right-next' id="next-link" href="T1mapping_QIBAv1.html" title="next page">QIBA v1</a>
+    <a class='left-prev' id="prev-link" href="localguide.html" title="previous page">Create a copy of the respository and contribute changes</a>
+    <a class='right-next' id="next-link" href="contributors.html" title="next page">&lt;no title&gt;</a>
 
         </div>
         

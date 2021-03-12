@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>T1 mapping &#8212; OSIPI Code</title>
+    <title>Guidelines for code contribution &#8212; OSIPI Code</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -52,12 +52,10 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="QIBA v1" href="T1mapping_QIBAv1.html" />
-    <link rel="prev" title="OSIPI Code Demo" href="intro.html" />
+    <link rel="next" title="Create a copy of the respository and contribute changes" href="localguide.html" />
+    <link rel="prev" title="RIDERneuro T1 mapping" href="T1mapping_RIDER.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -95,8 +93,8 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active collapsible-parent">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="T1mapping.html">
    T1 mapping
   </a>
   <ul class="collapse-ul">
@@ -119,8 +117,8 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="guidelines.html">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="current reference internal" href="#">
    Guidelines for code contribution
   </a>
   <ul class="collapse-ul">
@@ -178,7 +176,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/T1mapping.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/guidelines.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -203,6 +201,53 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-for-code-contribution">
+   Process for code contribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#essential-contributor-information">
+   Essential contributor information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-submit-code">
+   How to submit code
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clone-repo-and-switch-to-develop-branch">
+     Clone repo and switch to develop branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-new-feature-branch">
+     Create new feature branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#push-feature-branch-to-remote">
+     Push feature branch to remote
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in-github-make-pull-request-from-new-feature-branch-to-develop-for-approval">
+     In GitHub, make pull request from new feature branch to develop for approval
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -211,23 +256,67 @@
         
               <div>
                 
-  <div class="section" id="t1-mapping">
-<h1>T1 mapping<a class="headerlink" href="#t1-mapping" title="Permalink to this headline">¶</a></h1>
-<p>The MRI signal in a spoiled gradient recalled echo is described by:</p>
-<div class="math notranslate nohighlight">
-\[
-S = M_0 \sin(\alpha) \frac{1 - \exp(-TR/T_1)}{1 - \cos(\alpha) \exp(-TR/T_1)} \exp(-TE/T_2)
-\]</div>
-<p>The acquisition parameters are the flip angle <span class="math notranslate nohighlight">\(\alpha\)</span>, repetition time <span class="math notranslate nohighlight">\(TR\)</span> and echo time <span class="math notranslate nohighlight">\(TE\)</span>—these are controlled by the scanner and are known<a class="footnote-reference brackets" href="#id2" id="id1">1</a>.
-The goal of T1 mapping is to estimate the tissue-specific parameters—the magnetization <span class="math notranslate nohighlight">\(M_0\)</span> and spin-lattice relaxation time <span class="math notranslate nohighlight">\(T_1\)</span>.</p>
+  <div class="section" id="guidelines-for-code-contribution">
+<h1>Guidelines for code contribution<a class="headerlink" href="#guidelines-for-code-contribution" title="Permalink to this headline">¶</a></h1>
+<p><em>Note: The guidelines for code contribution will be updated if necessary, as we progress through different milestones of the OSIPI initiative. All queries regarding code submission can be submitted using the label ‘question’ on the <a class="reference external" href="https://github.com/OSIPI/TF2.3-CodeLibrary/issues">issue tracker</a> or addressed to <a class="reference external" href="mailto:sudarshan&#46;ragunathan&#37;&#52;&#48;gmail&#46;com">Sudarshan Ragunathan</a>.</em></p>
+<div class="section" id="process-for-code-contribution">
+<h2>Process for code contribution<a class="headerlink" href="#process-for-code-contribution" title="Permalink to this headline">¶</a></h2>
+<p>We invite colleagues to contribute source code for performing one or more DCE-MRI or DSC-MRI processing steps. Currently, TF2.3 is accepting code written in Python. Code can be submitted directly as .py files by creating a feature branch of this repository (described below).</p>
+<p>Contribution of the following is <strong>optional</strong> but helpful:</p>
+<ul class="simple">
+<li><p>.py test files</p></li>
+<li><p>test data</p></li>
+<li><p>files containing other relevant data or information, e.g. typical real-world applications of code, scripts, known features and limitations, citations etc.</p></li>
+</ul>
+<p>If you would prefer to contribute via email or another mechanism, please contact the <a class="reference external" href="https://www.osipi.org/task-force-2-3/">task force leads</a> or <a class="reference external" href="mailto:sudarshan&#46;ragunathan&#37;&#52;&#48;gmail&#46;com">Sudarshan Ragunathan</a>.</p>
+</div>
+<div class="section" id="essential-contributor-information">
+<h2>Essential contributor information<a class="headerlink" href="#essential-contributor-information" title="Permalink to this headline">¶</a></h2>
+<p>To help facilitate an organized approach to house community contributed source code for the different components of the DCE/DSC pipeline, we ask contributors to provide the following information <strong>as part of the source code folder names</strong>:</p>
+<ul class="simple">
+<li><p>Identify the component of the DCE/DCE pipeline that the code is intended to represent</p></li>
+<li><p>Name of the contributor’s institution / organization</p></li>
+<li><p>Name of the contributor’s lab / research group ( if applicable)</p></li>
+<li><p>Author of code (can also include in the source code)</p></li>
+</ul>
+<p>Further details can be submitted in a text file if necessary.</p>
+</div>
+<div class="section" id="how-to-submit-code">
+<h2>How to submit code<a class="headerlink" href="#how-to-submit-code" title="Permalink to this headline">¶</a></h2>
+<p>Code submission can be performed directly to the repository by creating a feature branch containing the contributor information described above. A step by step guide is provided as follows:</p>
+<div class="section" id="clone-repo-and-switch-to-develop-branch">
+<h3>Clone repo and switch to develop branch<a class="headerlink" href="#clone-repo-and-switch-to-develop-branch" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$git clone https://github.com/OSIPI/DCE-DSC-MRI_CodeCollection.git
+$git switch develop
+$git status
+</pre></div>
+</div>
+<p>Git status should say that you are now on branch develop.</p>
+</div>
+<div class="section" id="create-new-feature-branch">
+<h3>Create new feature branch<a class="headerlink" href="#create-new-feature-branch" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$git checkout -b &lt;initials_featurebranchname&gt;
+</pre></div>
+</div>
+<p>Add contributions to feature branch (in folder src/original/’initials lab instution’)</p>
+</div>
+<div class="section" id="push-feature-branch-to-remote">
+<h3>Push feature branch to remote<a class="headerlink" href="#push-feature-branch-to-remote" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$git add &lt;all_untracked_files&gt;
+$git commit -m &quot;Commit Message&quot;
+$git push -u origin &lt;feature_branch_name&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="in-github-make-pull-request-from-new-feature-branch-to-develop-for-approval">
+<h3>In GitHub, make pull request from new feature branch to develop for approval<a class="headerlink" href="#in-github-make-pull-request-from-new-feature-branch-to-develop-for-approval" title="Permalink to this headline">¶</a></h3>
+<p>On <a class="reference external" href="http://github.com">github.com</a>, select the <strong>Pull Requests</strong> tab and click on <strong>New pull request</strong>.
+<img alt="new pull request" src="_images/pullrequest.png" />
+In the drop-down for <strong>base</strong> select the <strong>develop</strong> branch and under <strong>compare</strong> select the branch with your commits. Click on create pull request.</p>
 <div class="toctree-wrapper compound">
 </div>
-<hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Let’s ignore B1 effects for now.</p>
-</dd>
-</dl>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -255,8 +344,8 @@ The goal of T1 mapping is to estimate the tissue-specific parameters—the magne
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">OSIPI Code Demo</a>
-    <a class='right-next' id="next-link" href="T1mapping_QIBAv1.html" title="next page">QIBA v1</a>
+    <a class='left-prev' id="prev-link" href="T1mapping_RIDER.html" title="previous page">RIDERneuro T1 mapping</a>
+    <a class='right-next' id="next-link" href="localguide.html" title="next page">Create a copy of the respository and contribute changes</a>
 
         </div>
         

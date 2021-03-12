@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; OSIPI Code</title>
+    <title>VFA T1 Mapping: Test Overview &#8212; OSIPI Code</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -52,7 +52,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -166,6 +166,23 @@
             </button>
             
             
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/VFA T1 Mapping Test Overview.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
             <!-- Source interaction buttons -->
 
 
@@ -182,6 +199,36 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assertion-testing">
+   Assertion Testing:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-for-valid-input-values">
+   Test for valid input values :
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-for-valid-input-data-types">
+   Test for valid input data types:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-for-array-dimensionality">
+   Test for array dimensionality:
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -190,13 +237,49 @@
         
               <div>
                 
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="vfa-t1-mapping-test-overview">
+<h1>VFA T1 Mapping: Test Overview<a class="headerlink" href="#vfa-t1-mapping-test-overview" title="Permalink to this headline">¶</a></h1>
+<p><strong>This document provides a rudimentary description of the unit tests for variable flip angle based T1 mapping.</strong></p>
+<div class="section" id="assertion-testing">
+<h2>Assertion Testing:<a class="headerlink" href="#assertion-testing" title="Permalink to this headline">¶</a></h2>
+<p>Test for specific inputs and expected outputs. Assertion tests determine if the code is providing the correct output. A case representing each of the following : simuated data (from MR signal equtions), DRO data, phantom data and invivo data, will be part of this test approach</p>
+<p><strong>Current Status:</strong> For the time being, simulated values without noise have been specified to test the fit. Additional test cases with varying degrees of noise should be included, from maybe a DRO.</p>
+</div>
+<div class="section" id="test-for-valid-input-values">
+<h2>Test for valid input values :<a class="headerlink" href="#test-for-valid-input-values" title="Permalink to this headline">¶</a></h2>
+<p>This test case would check for validity of the input arguments passed to the VFA function. For example, if invalid flip angles are used i.e. flip angle &lt; 0, then an exception will be raised.</p>
+<p><strong>Current Status:</strong> Check for negative flip angle is part of the test framework.</p>
+</div>
+<div class="section" id="test-for-valid-input-data-types">
+<h2>Test for valid input data types:<a class="headerlink" href="#test-for-valid-input-data-types" title="Permalink to this headline">¶</a></h2>
+<p>Check if the correct data types are used for the variables</p>
+</div>
+<div class="section" id="test-for-array-dimensionality">
+<h2>Test for array dimensionality:<a class="headerlink" href="#test-for-array-dimensionality" title="Permalink to this headline">¶</a></h2>
+<p>Check for array dimensionality mismatch which could result in an error while computing fit.
+For example : len(signal array) not equal to len(flip angle array)</p>
+</div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               

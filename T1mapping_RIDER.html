@@ -54,6 +54,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Guidelines for code contribution" href="guidelines.html" />
     <link rel="prev" title="QIBA v2" href="T1mapping_QIBAv2.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -110,6 +111,25 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      RIDERneuro T1 mapping
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="guidelines.html">
+   Guidelines for code contribution
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="localguide.html">
+     Create a copy of the respository and contribute changes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="localtests.html">
+     Creating a Python test file
     </a>
    </li>
   </ul>
@@ -181,7 +201,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/OSIPI/DCE-DSC-MRI_CodeCollection/demo?urlpath=tree/notebooks/T1mapping_RIDER.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/OSIPI/DCE-DSC-MRI_CodeCollection/demo?urlpath=lab/tree/notebooks/T1mapping_RIDER.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -429,8 +449,8 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - McGill
-CPU times: user 20.1 ms, sys: 4.01 ms, total: 24.1 ms
-Wall time: 23.5 ms
+CPU times: user 20.7 ms, sys: 4.14 ms, total: 24.9 ms
+Wall time: 24.3 ms
 
 NLS - McGill
 </pre></div>
@@ -443,8 +463,8 @@ NLS - McGill
   solB = (BB * ZAbar - BAbar * BZ) / determinant
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 315 ms, sys: 109 ms, total: 424 ms
-Wall time: 228 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 318 ms, sys: 98.7 ms, total: 417 ms
+Wall time: 225 ms
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>../src/original/T1_mapping/McGill/vfa.py:68: RuntimeWarning: invalid value encountered in log
@@ -484,8 +504,8 @@ Wall time: 228 ms
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - Edinburgh
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.96 s, sys: 75.6 ms, total: 4.03 s
-Wall time: 3.88 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.22 s, sys: 61.2 ms, total: 6.28 s
+Wall time: 6.19 s
 </pre></div>
 </div>
 </div>
@@ -516,10 +536,6 @@ Wall time: 3.88 s
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - Sydney
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4min 50s, sys: 171 ms, total: 4min 50s
-Wall time: 4min 50s
-</pre></div>
-</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -527,9 +543,6 @@ Wall time: 4min 50s
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_maps</span><span class="p">(</span><span class="n">sydney_lls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/T1mapping_RIDER_14_0.png" src="_images/T1mapping_RIDER_14_0.png" />
 </div>
 </div>
 </div>
@@ -561,6 +574,7 @@ Wall time: 4min 50s
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="T1mapping_QIBAv2.html" title="previous page">QIBA v2</a>
+    <a class='right-next' id="next-link" href="guidelines.html" title="next page">Guidelines for code contribution</a>
 
         </div>
         
