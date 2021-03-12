@@ -238,27 +238,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">38</span><span class="n">d7eef58eb7</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">original.T1_mapping.MJT_EdinburghUK.t1</span> <span class="k">as</span> <span class="nn">edinburgh</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">original.T1_mapping.ST_SydneyAus.VFAT1mapping</span> <span class="k">as</span> <span class="nn">sydney</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">original.T1_mapping.McGill.vfa</span> <span class="k">as</span> <span class="nn">mcgill</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">os</span>
-
-<span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">DCE</span><span class="o">-</span><span class="n">DSC</span><span class="o">-</span><span class="n">MRI_CodeCollection</span><span class="o">/</span><span class="n">DCE</span><span class="o">-</span><span class="n">DSC</span><span class="o">-</span><span class="n">MRI_CodeCollection</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">original</span><span class="o">/</span><span class="n">T1_mapping</span><span class="o">/</span><span class="n">ST_SydneyAus</span><span class="o">/</span><span class="n">VFAT1mapping</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1">#  Import required packages</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">---&gt; </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">lmfit</span> <span class="kn">import</span> <span class="n">Model</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> 
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="c1"># Nonlinear SPGR equation definition</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;lmfit&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -274,6 +253,11 @@
 
 <span class="n">t1data</span> <span class="o">=</span> <span class="n">mat73</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">t1file</span><span class="p">)</span>
 <span class="n">t1data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;M0&#39;, &#39;T1&#39;, &#39;TR&#39;, &#39;fa&#39;, &#39;signal&#39;])
 </pre></div>
 </div>
 </div>
@@ -377,6 +361,23 @@ However, unlike QIBA v1, the v2 phantom has noise with <span class="math notrans
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - McGill
+CPU times: user 12.8 ms, sys: 8.06 ms, total: 20.9 ms
+Wall time: 20.4 ms
+ 
+NLS - McGill
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 290 ms, sys: 92 ms, total: 382 ms
+Wall time: 206 ms
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>../src/original/T1_mapping/McGill/vfa.py:68: RuntimeWarning: invalid value encountered in log
+  T1 = -TR/np.log(solB)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -384,6 +385,11 @@ However, unlike QIBA v1, the v2 phantom has noise with <span class="math notrans
 <span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/T1mapping_QIBAv2_7_0.png" src="_images/T1mapping_QIBAv2_7_0.png" />
+<img alt="_images/T1mapping_QIBAv2_7_1.png" src="_images/T1mapping_QIBAv2_7_1.png" />
+<img alt="_images/T1mapping_QIBAv2_7_2.png" src="_images/T1mapping_QIBAv2_7_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -393,6 +399,11 @@ However, unlike QIBA v1, the v2 phantom has noise with <span class="math notrans
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/T1mapping_QIBAv2_8_0.png" src="_images/T1mapping_QIBAv2_8_0.png" />
+<img alt="_images/T1mapping_QIBAv2_8_1.png" src="_images/T1mapping_QIBAv2_8_1.png" />
+<img alt="_images/T1mapping_QIBAv2_8_2.png" src="_images/T1mapping_QIBAv2_8_2.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -400,6 +411,11 @@ However, unlike QIBA v1, the v2 phantom has noise with <span class="math notrans
 <span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/T1mapping_QIBAv2_9_0.png" src="_images/T1mapping_QIBAv2_9_0.png" />
+<img alt="_images/T1mapping_QIBAv2_9_1.png" src="_images/T1mapping_QIBAv2_9_1.png" />
+<img alt="_images/T1mapping_QIBAv2_9_2.png" src="_images/T1mapping_QIBAv2_9_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -409,6 +425,11 @@ However, unlike QIBA v1, the v2 phantom has noise with <span class="math notrans
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/T1mapping_QIBAv2_10_0.png" src="_images/T1mapping_QIBAv2_10_0.png" />
+<img alt="_images/T1mapping_QIBAv2_10_1.png" src="_images/T1mapping_QIBAv2_10_1.png" />
+<img alt="_images/T1mapping_QIBAv2_10_2.png" src="_images/T1mapping_QIBAv2_10_2.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -417,6 +438,11 @@ However, unlike QIBA v1, the v2 phantom has noise with <span class="math notrans
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/T1mapping_QIBAv2_11_0.png" src="_images/T1mapping_QIBAv2_11_0.png" />
+<img alt="_images/T1mapping_QIBAv2_11_1.png" src="_images/T1mapping_QIBAv2_11_1.png" />
+<img alt="_images/T1mapping_QIBAv2_11_2.png" src="_images/T1mapping_QIBAv2_11_2.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -424,6 +450,11 @@ However, unlike QIBA v1, the v2 phantom has noise with <span class="math notrans
 <span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/T1mapping_QIBAv2_12_0.png" src="_images/T1mapping_QIBAv2_12_0.png" />
+<img alt="_images/T1mapping_QIBAv2_12_1.png" src="_images/T1mapping_QIBAv2_12_1.png" />
+<img alt="_images/T1mapping_QIBAv2_12_2.png" src="_images/T1mapping_QIBAv2_12_2.png" />
 </div>
 </div>
 <div class="cell docutils container">

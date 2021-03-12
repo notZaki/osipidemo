@@ -255,27 +255,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">0</span><span class="n">d8c669e2753</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">original.T1_mapping.MJT_EdinburghUK.t1</span> <span class="k">as</span> <span class="nn">edinburgh</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">original.T1_mapping.ST_SydneyAus.VFAT1mapping</span> <span class="k">as</span> <span class="nn">sydney</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">original.T1_mapping.McGill.vfa</span> <span class="k">as</span> <span class="nn">mcgill</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">os</span>
-
-<span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">DCE</span><span class="o">-</span><span class="n">DSC</span><span class="o">-</span><span class="n">MRI_CodeCollection</span><span class="o">/</span><span class="n">DCE</span><span class="o">-</span><span class="n">DSC</span><span class="o">-</span><span class="n">MRI_CodeCollection</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">original</span><span class="o">/</span><span class="n">T1_mapping</span><span class="o">/</span><span class="n">ST_SydneyAus</span><span class="o">/</span><span class="n">VFAT1mapping</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1">#  Import required packages</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">---&gt; </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">lmfit</span> <span class="kn">import</span> <span class="n">Model</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> 
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="c1"># Nonlinear SPGR equation definition</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;lmfit&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -448,6 +427,31 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - McGill
+CPU times: user 21.2 ms, sys: 4.24 ms, total: 25.4 ms
+Wall time: 26 ms
+
+NLS - McGill
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>../src/original/T1_mapping/McGill/vfa.py:11: RuntimeWarning: invalid value encountered in true_divide
+  slope = numerator / denominator
+../src/original/T1_mapping/McGill/vfa.py:58: RuntimeWarning: invalid value encountered in true_divide
+  solA = (BZ * AAbar - ZAbar * BA) / determinant
+../src/original/T1_mapping/McGill/vfa.py:59: RuntimeWarning: invalid value encountered in true_divide
+  solB = (BB * ZAbar - BAbar * BZ) / determinant
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 315 ms, sys: 95.3 ms, total: 410 ms
+Wall time: 223 ms
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>../src/original/T1_mapping/McGill/vfa.py:68: RuntimeWarning: invalid value encountered in log
+  T1 = -TR/np.log(solB)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -455,6 +459,10 @@
 <span class="n">show_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Nonlinear least squares&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/T1mapping_RIDER_9_0.png" src="_images/T1mapping_RIDER_9_0.png" />
+<img alt="_images/T1mapping_RIDER_9_1.png" src="_images/T1mapping_RIDER_9_1.png" />
 </div>
 </div>
 </div>
@@ -472,12 +480,24 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - Edinburgh
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.29 s, sys: 221 ms, total: 6.51 s
+Wall time: 6.23 s
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_maps</span><span class="p">(</span><span class="n">edinburgh_lls</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/T1mapping_RIDER_12_0.png" src="_images/T1mapping_RIDER_12_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -489,6 +509,11 @@
 <span class="c1"># Skipping NLS because of error</span>
 <span class="c1"># print(&quot;NLS - Sydney&quot;)</span>
 <span class="c1"># %time sydney_nls = vfa_fit(signal, flipangles, tr, author = &quot;sydney&quot;, fittype = &quot;nonlinear&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - Sydney
 </pre></div>
 </div>
 </div>

@@ -311,27 +311,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">b1f9e4660d10</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">original.T1_mapping.MJT_EdinburghUK.t1</span> <span class="k">as</span> <span class="nn">edinburgh</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">original.T1_mapping.ST_SydneyAus.VFAT1mapping</span> <span class="k">as</span> <span class="nn">sydney</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">original.T1_mapping.McGill.vfa</span> <span class="k">as</span> <span class="nn">mcgill</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">os</span>
-
-<span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">DCE</span><span class="o">-</span><span class="n">DSC</span><span class="o">-</span><span class="n">MRI_CodeCollection</span><span class="o">/</span><span class="n">DCE</span><span class="o">-</span><span class="n">DSC</span><span class="o">-</span><span class="n">MRI_CodeCollection</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">original</span><span class="o">/</span><span class="n">T1_mapping</span><span class="o">/</span><span class="n">ST_SydneyAus</span><span class="o">/</span><span class="n">VFAT1mapping</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1">#  Import required packages</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">---&gt; </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">lmfit</span> <span class="kn">import</span> <span class="n">Model</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> 
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="c1"># Nonlinear SPGR equation definition</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;lmfit&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -463,6 +442,9 @@ The phantom consists of a 2D grid containing 7 <span class="math notranslate noh
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/T1mapping_QIBAv1_6_0.png" src="_images/T1mapping_QIBAv1_6_0.png" />
+</div>
 </div>
 <div class="section" id="linear-least-squares">
 <h2>Linear least-squares<a class="headerlink" href="#linear-least-squares" title="Permalink to this headline">¶</a></h2>
@@ -475,6 +457,13 @@ The phantom consists of a 2D grid containing 7 <span class="math notranslate noh
 <span class="n">show_maps</span><span class="p">(</span><span class="n">edinburgh_lls</span><span class="p">);</span> 
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.16 s, sys: 20.8 ms, total: 1.18 s
+Wall time: 1.16 s
+</pre></div>
+</div>
+<img alt="_images/T1mapping_QIBAv1_9_1.png" src="_images/T1mapping_QIBAv1_9_1.png" />
 </div>
 </div>
 </div>
