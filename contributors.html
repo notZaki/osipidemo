@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; OSIPI Code</title>
+    <title>Contributors &#8212; OSIPI Code</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -91,12 +91,17 @@
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="T1mapping.html">
    T1 mapping
   </a>
   <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="vfatestoverview.html">
+     VFA T1 Mapping: Test Overview
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T1mapping_QIBAv1.html">
      QIBA v1
@@ -134,6 +139,11 @@
   </ul>
   <i class="fas fa-chevron-down">
   </i>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Contributors
+  </a>
  </li>
 </ul>
 
@@ -195,21 +205,28 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/OSIPI/DCE-DSC-MRI_CodeCollection/demo?urlpath=lab/tree/notebooks/contributors.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
-</ul>
-
-        </nav>
-        
         </div>
     </div>
 </div>
@@ -218,7 +235,217 @@
         
               <div>
                 
-  
+  <div class="section" id="contributors">
+<h1>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h1>
+<p>This is a table of current contributors.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Category (create 1 entry per category)</th>
+      <th>Contribution ID</th>
+      <th>Author</th>
+      <th>Institution</th>
+      <th>Notes</th>
+      <th>Tester</th>
+      <th>Test status (empty/in-progress/complete)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>T1</td>
+      <td>MB_QBIManchesterUK_T1</td>
+      <td>Michael Berks</td>
+      <td>University of Manchester, UK</td>
+      <td>code not yet implemented</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>T1</td>
+      <td>ST_SydneyAus_T1</td>
+      <td>Sirisha Tadimalla</td>
+      <td>University of Sydney, Australia</td>
+      <td>VFA</td>
+      <td>MJT, SR</td>
+      <td>in-progress</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>T1</td>
+      <td>MJT_EdinburghUK_T1</td>
+      <td>Michael Thrippleton</td>
+      <td>University of Edinburgh, UK</td>
+      <td>VFA</td>
+      <td>MJT, SR</td>
+      <td>in-progress</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>T1</td>
+      <td>OG_MO_AUMC_ICR_RMH</td>
+      <td>Oliver Gurney-Champion, Matthew Orton</td>
+      <td>Amsterdam University Medical Center, the Nethe...</td>
+      <td>two flip angles</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>T1</td>
+      <td>McGill_VFA</td>
+      <td>Zaki Ahmed</td>
+      <td>McGill University, Canada</td>
+      <td>despot, novifast</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Pharmacokinetic models</td>
+      <td>LEK_UoEdinburgh</td>
+      <td>Lucy Kershaw</td>
+      <td>University of Edinburgh, UK</td>
+      <td>Patlak, Tofts, extended Tofts, 2comp uptake mo...</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Pharmacokinetic models</td>
+      <td>ST_USydAUS_DCE</td>
+      <td>Sirisha Tadimalla</td>
+      <td>University of Sydney, Australia</td>
+      <td>Patlak, extended Tofts, one-comp model, variou...</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Pharmacokinetic models</td>
+      <td>OG_MO_AUMC_ICR_RMH</td>
+      <td>Oliver Gurney-Champion, Matthew Orton</td>
+      <td>Amsterdam University Medical Center, the Nethe...</td>
+      <td>extended Tofts; testing example provided</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>SignalToConcentration</td>
+      <td>LEK_UoEdinburgh</td>
+      <td>Lucy Kershaw</td>
+      <td>University of Edinburgh, UK</td>
+      <td>SPGR</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>SignalToConcentration</td>
+      <td>ST_USydAUS_DCE</td>
+      <td>Sirisha Tadimalla</td>
+      <td>University of Sydney, Australia</td>
+      <td>SPGR</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>SignalToConcentration</td>
+      <td>OG_MO_AUMC_ICR_RMH</td>
+      <td>Oliver Gurney-Champion, Matthew Orton</td>
+      <td>Amsterdam University Medical Center, the Nethe...</td>
+      <td>SPGR</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>ConcentrationToSignal</td>
+      <td>OG_MO_AUMC_ICR_RMH</td>
+      <td>Oliver Gurney-Champion, Matthew Orton</td>
+      <td>Amsterdam University Medical Center, the Nethe...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Leakage correction</td>
+      <td>SR_TBG_BNIPhoenixUSA</td>
+      <td>Sudarshan Ragunathan</td>
+      <td>Barrow Neurological Institute</td>
+      <td>BSW correction</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Input Functions</td>
+      <td>ST_USydAUS_DCE</td>
+      <td>Sirisha Tadimalla</td>
+      <td>University of Sydney, Australia</td>
+      <td>Parker AIF, preclinical AIF, helper functions</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Input Functions</td>
+      <td>OG_MO_AUMC_ICR_RMH</td>
+      <td>Oliver Gurney-Champion, Matthew Orton</td>
+      <td>Amsterdam University Medical Center, the Nethe...</td>
+      <td>AIF parameterization</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>extra tools</td>
+      <td>ST_USydAUS_DCE</td>
+      <td>Sirisha Tadimalla</td>
+      <td>University of Sydney, Australia</td>
+      <td>NaN</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Preprocessing</td>
+      <td>OG_MO_AUMC_ICR_RMH</td>
+      <td>Oliver Gurney-Champion, Matthew Orton</td>
+      <td>Amsterdam University Medical Center, the Nethe...</td>
+      <td>check for enhancement</td>
+      <td>tbc</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
