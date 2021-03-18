@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -302,7 +302,7 @@
     <span class="k">return</span>
 
 
-<span class="k">def</span> <span class="nf">get_manifest</span><span class="p">(</span><span class="n">manifestfile</span><span class="p">,</span> <span class="n">manifesturl</span> <span class="o">=</span> <span class="s2">&quot;https://osf.io/nx5jw/download&quot;</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">get_manifest</span><span class="p">(</span><span class="n">manifestfile</span><span class="p">,</span> <span class="n">manifesturl</span> <span class="o">=</span> <span class="s2">&quot;https://osf.io/yhbsq/download&quot;</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">manifestfile</span><span class="p">):</span>
         <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">manifesturl</span><span class="p">,</span> <span class="n">manifestfile</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">manifestfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">iostream</span><span class="p">:</span>
@@ -459,8 +459,8 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - McGill
-CPU times: user 21.8 ms, sys: 3.57 ms, total: 25.4 ms
-Wall time: 24.7 ms
+CPU times: user 20.6 ms, sys: 4.1 ms, total: 24.7 ms
+Wall time: 23.8 ms
 
 NLS - McGill
 </pre></div>
@@ -473,8 +473,8 @@ NLS - McGill
   solB = (BB * ZAbar - BAbar * BZ) / determinant
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 326 ms, sys: 109 ms, total: 435 ms
-Wall time: 235 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 326 ms, sys: 92 ms, total: 417 ms
+Wall time: 226 ms
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>../src/original/T1_mapping/McGill/vfa.py:68: RuntimeWarning: invalid value encountered in log
@@ -514,8 +514,8 @@ Wall time: 235 ms
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - Edinburgh
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.04 s, sys: 177 ms, total: 6.22 s
-Wall time: 6.04 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.86 s, sys: 63.6 ms, total: 3.93 s
+Wall time: 3.82 s
 </pre></div>
 </div>
 </div>
@@ -546,8 +546,8 @@ Wall time: 6.04 s
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LLS - Sydney
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6min 3s, sys: 391 ms, total: 6min 3s
-Wall time: 6min 2s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5min 1s, sys: 158 ms, total: 5min 1s
+Wall time: 5min
 </pre></div>
 </div>
 </div>
