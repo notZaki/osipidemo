@@ -32,13 +32,13 @@ plt.style.use('https://gist.github.com/notZaki/8bfb049230e307f4432fd68d24c603a1/
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1856/3323345980.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_1874/3323345980.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0;32mimport[0m [0moriginal[0m[0;34m.[0m[0mT1_mapping[0m[0;34m.[0m[0mMJT_EdinburghUK[0m[0;34m.[0m[0mt1[0m [0;32mas[0m [0medinburgh[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      2[0m [0;32mimport[0m [0moriginal[0m[0;34m.[0m[0mT1_mapping[0m[0;34m.[0m[0mST_SydneyAus[0m[0;34m.[0m[0mVFAT1mapping[0m [0;32mas[0m [0msydney[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      3[0m [0;32mimport[0m [0moriginal[0m[0;34m.[0m[0mT1_mapping[0m[0;34m.[0m[0mMcGill[0m[0;34m.[0m[0mvfa[0m [0;32mas[0m [0mmcgill[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      4[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      5[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'original.T1_mapping.MJT_EdinburghUK'
-ModuleNotFoundError: No module named 'original.T1_mapping.MJT_EdinburghUK'
+[0;31mModuleNotFoundError[0m: No module named 'original.T1_mapping'
+ModuleNotFoundError: No module named 'original.T1_mapping'
 
