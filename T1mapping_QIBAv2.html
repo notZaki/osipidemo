@@ -291,21 +291,7 @@ To speed up the fits, only a single voxel from each block will be selected:</p>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="nb">next</span> <span class="n">section</span> <span class="n">fits</span> <span class="n">the</span> <span class="n">LLS</span> <span class="ow">and</span> <span class="n">NLS</span> <span class="n">implementation</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">previous</span> <span class="n">notebook</span><span class="p">)</span> <span class="n">on</span> <span class="n">the</span> <span class="n">noisy</span> <span class="n">phantom</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2222/2612603260.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
-    <span class="n">The</span> <span class="nb">next</span> <span class="n">section</span> <span class="n">fits</span> <span class="n">the</span> <span class="n">LLS</span> <span class="ow">and</span> <span class="n">NLS</span> <span class="n">implementation</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">previous</span> <span class="n">notebook</span><span class="p">)</span> <span class="n">on</span> <span class="n">the</span> <span class="n">noisy</span> <span class="n">phantom</span>
-        <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
+<p>The next section fits the LLS and NLS implementation (from previous notebook) on the noisy phantom</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========================&quot;</span><span class="p">)</span>
@@ -342,24 +328,64 @@ To speed up the fits, only a single voxel from each block will be selected:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>========================
+LINEAR LEAST SQUARES
+ 
+LLS - McGill
+CPU times: user 1.74 ms, sys: 0 ns, total: 1.74 ms
+Wall time: 1.34 ms
+ 
+LLS - Edinburgh
+CPU times: user 62.7 ms, sys: 4.17 ms, total: 66.9 ms
+Wall time: 64.3 ms
+ 
+LLS - Sydney
+</pre></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>The percent error map for the 6 noise level is shown in the gif below.
-As a reminder, the noise levels were: $\sigma = \{2, 5, 10, 20, 50, 100\}$
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.7 s, sys: 6.94 ms, total: 3.71 s
+Wall time: 3.7 s
+ 
+========================
+NON-LINEAR LEAST SQUARES
+ 
+NLS - McGill
+CPU times: user 5.44 ms, sys: 0 ns, total: 5.44 ms
+Wall time: 5.11 ms
+ 
+NLS - Edinburgh
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.35 s, sys: 7.62 ms, total: 2.36 s
+Wall time: 2.35 s
+ 
+NLS - Sydney
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.24 s, sys: 13.3 ms, total: 5.26 s
+Wall time: 5.24 s
+ 
 </pre></div>
 </div>
 </div>
 </div>
+<p>The percent error map for the 6 noise level is shown in the gif below.
+As a reminder, the noise levels were: <span class="math notranslate nohighlight">\(\sigma = \{2, 5, 10, 20, 50, 100\}\)</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">drawfunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">idx</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">drawfunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">idx</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">returnfig</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">make_error_map_gif</span><span class="p">(</span><span class="n">drawfunc</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;./images/mcgill_lls_error.gif&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/osipi/utils/nb.py:40: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+  fig.tight_layout()
+</pre></div>
 </div>
-<p><img alt="McGill LLS Error" src="images/mcgill_lls_error.gif" /></p>
+</div>
+</div>
+<p><img alt="McGill LLS Error" src="_images/mcgill_lls_error.gif" /></p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>

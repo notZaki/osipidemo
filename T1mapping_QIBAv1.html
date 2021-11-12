@@ -358,12 +358,11 @@ The ground truth is show below:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.34 s, sys: 251 ms, total: 1.59 s
-Wall time: 1.31 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.06 s, sys: 17.9 ms, total: 1.08 s
+Wall time: 1.05 s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_9_1.png" src="_images/T1mapping_QIBAv1_9_1.png" />
-<img alt="_images/T1mapping_QIBAv1_9_2.png" src="_images/T1mapping_QIBAv1_9_2.png" />
 </div>
 </div>
 </div>
@@ -378,12 +377,11 @@ Wall time: 1.31 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 57.9 s, sys: 67 ms, total: 58 s
-Wall time: 57.9 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 1s, sys: 57.8 ms, total: 1min 1s
+Wall time: 1min 1s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_11_1.png" src="_images/T1mapping_QIBAv1_11_1.png" />
-<img alt="_images/T1mapping_QIBAv1_11_2.png" src="_images/T1mapping_QIBAv1_11_2.png" />
 </div>
 </div>
 </div>
@@ -398,12 +396,11 @@ Wall time: 57.9 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 119 ms, sys: 33 µs, total: 119 ms
-Wall time: 119 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 133 ms, sys: 0 ns, total: 133 ms
+Wall time: 133 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_13_1.png" src="_images/T1mapping_QIBAv1_13_1.png" />
-<img alt="_images/T1mapping_QIBAv1_13_2.png" src="_images/T1mapping_QIBAv1_13_2.png" />
 </div>
 </div>
 </div>
@@ -418,17 +415,16 @@ Wall time: 119 ms
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">edinburgh_nls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;edinburgh&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;nonlinear&quot;</span><span class="p">)</span>
-<span class="n">show_maps</span><span class="p">(</span><span class="n">edinburgh_nls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">);</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">edinburgh_nls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Edinburgh NLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 26.1 s, sys: 47.4 ms, total: 26.1 s
-Wall time: 26.1 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 26.3 s, sys: 19.9 ms, total: 26.3 s
+Wall time: 26.3 s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_17_1.png" src="_images/T1mapping_QIBAv1_17_1.png" />
-<img alt="_images/T1mapping_QIBAv1_17_2.png" src="_images/T1mapping_QIBAv1_17_2.png" />
 </div>
 </div>
 </div>
@@ -438,17 +434,16 @@ Wall time: 26.1 s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span> 
 <span class="n">sydney_nls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;sydney&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;nonlinear&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">)</span>
-<span class="n">show_maps</span><span class="p">(</span><span class="n">sydney_nls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">);</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">sydney_nls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Sydney NLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 22s, sys: 115 ms, total: 1min 22s
-Wall time: 1min 22s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 25s, sys: 112 ms, total: 1min 25s
+Wall time: 1min 25s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_19_1.png" src="_images/T1mapping_QIBAv1_19_1.png" />
-<img alt="_images/T1mapping_QIBAv1_19_2.png" src="_images/T1mapping_QIBAv1_19_2.png" />
 </div>
 </div>
 </div>
@@ -458,17 +453,16 @@ Wall time: 1min 22s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">mcgill_nls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;mcgill&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;nonlinear&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">)</span>
-<span class="n">show_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">);</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;McGill NLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 209 ms, sys: 64.2 ms, total: 273 ms
-Wall time: 139 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 213 ms, sys: 56.1 ms, total: 269 ms
+Wall time: 141 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_21_1.png" src="_images/T1mapping_QIBAv1_21_1.png" />
-<img alt="_images/T1mapping_QIBAv1_21_2.png" src="_images/T1mapping_QIBAv1_21_2.png" />
 </div>
 </div>
 <p>The McGill implementation is fast because it is not using a traditional NLS fit.</p>
