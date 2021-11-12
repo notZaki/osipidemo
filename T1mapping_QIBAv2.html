@@ -333,37 +333,37 @@ To speed up the fits, only a single voxel from each block will be selected:</p>
 LINEAR LEAST SQUARES
  
 LLS - McGill
-CPU times: user 1.74 ms, sys: 0 ns, total: 1.74 ms
+CPU times: user 1.45 ms, sys: 257 µs, total: 1.71 ms
 Wall time: 1.34 ms
  
 LLS - Edinburgh
-CPU times: user 62.7 ms, sys: 4.17 ms, total: 66.9 ms
-Wall time: 64.3 ms
+CPU times: user 70.6 ms, sys: 390 µs, total: 71 ms
+Wall time: 66.1 ms
  
 LLS - Sydney
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.7 s, sys: 6.94 ms, total: 3.71 s
-Wall time: 3.7 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.76 s, sys: 3.6 ms, total: 3.76 s
+Wall time: 3.75 s
  
 ========================
 NON-LINEAR LEAST SQUARES
  
 NLS - McGill
-CPU times: user 5.44 ms, sys: 0 ns, total: 5.44 ms
-Wall time: 5.11 ms
+CPU times: user 6.3 ms, sys: 123 µs, total: 6.42 ms
+Wall time: 5.66 ms
  
 NLS - Edinburgh
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.35 s, sys: 7.62 ms, total: 2.36 s
-Wall time: 2.35 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.33 s, sys: 11.6 ms, total: 2.34 s
+Wall time: 2.33 s
  
 NLS - Sydney
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.24 s, sys: 13.3 ms, total: 5.26 s
-Wall time: 5.24 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.23 s, sys: 3.64 ms, total: 5.23 s
+Wall time: 5.22 s
  
 </pre></div>
 </div>
@@ -375,12 +375,6 @@ As a reminder, the noise levels were: <span class="math notranslate nohighlight"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">drawfunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">idx</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">returnfig</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">make_error_map_gif</span><span class="p">(</span><span class="n">drawfunc</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;./images/mcgill_lls_error.gif&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/osipi/utils/nb.py:40: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
-  fig.tight_layout()
 </pre></div>
 </div>
 </div>

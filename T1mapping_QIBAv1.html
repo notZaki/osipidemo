@@ -326,6 +326,9 @@
 <span class="n">vfafile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datafolder</span><span class="p">,</span> <span class="s2">&quot;vfadata.mat&quot;</span><span class="p">)</span>
 <span class="n">download_osf</span><span class="p">(</span><span class="s2">&quot;https://osf.io/jzu4k/download&quot;</span><span class="p">,</span> <span class="n">vfafile</span><span class="p">)</span>
 <span class="n">vfadata</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">vfafile</span><span class="p">)</span>
+<span class="n">vfadata</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">signal</span><span class="p">[::</span><span class="mi">10</span><span class="p">,</span> <span class="p">::</span><span class="mi">10</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">vfadata</span><span class="o">.</span><span class="n">M0</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">M0</span><span class="p">[::</span><span class="mi">10</span><span class="p">,</span> <span class="p">::</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">vfadata</span><span class="o">.</span><span class="n">T1</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">T1</span><span class="p">[::</span><span class="mi">10</span><span class="p">,</span> <span class="p">::</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -340,7 +343,6 @@ The ground truth is show below:</p>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/T1mapping_QIBAv1_5_0.png" src="_images/T1mapping_QIBAv1_5_0.png" />
-<img alt="_images/T1mapping_QIBAv1_5_1.png" src="_images/T1mapping_QIBAv1_5_1.png" />
 </div>
 </div>
 <div class="section" id="linear-least-squares">
@@ -358,8 +360,8 @@ The ground truth is show below:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.06 s, sys: 17.9 ms, total: 1.08 s
-Wall time: 1.05 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 158 ms, sys: 4.08 ms, total: 162 ms
+Wall time: 157 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_9_1.png" src="_images/T1mapping_QIBAv1_9_1.png" />
@@ -377,8 +379,8 @@ Wall time: 1.05 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 1s, sys: 57.8 ms, total: 1min 1s
-Wall time: 1min 1s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 851 ms, sys: 3.64 ms, total: 855 ms
+Wall time: 852 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_11_1.png" src="_images/T1mapping_QIBAv1_11_1.png" />
@@ -396,8 +398,8 @@ Wall time: 1min 1s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 133 ms, sys: 0 ns, total: 133 ms
-Wall time: 133 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 145 ms, sys: 13 ms, total: 158 ms
+Wall time: 142 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_13_1.png" src="_images/T1mapping_QIBAv1_13_1.png" />
@@ -420,8 +422,8 @@ Wall time: 133 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 26.3 s, sys: 19.9 ms, total: 26.3 s
-Wall time: 26.3 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 400 ms, sys: 7.71 ms, total: 408 ms
+Wall time: 409 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_17_1.png" src="_images/T1mapping_QIBAv1_17_1.png" />
@@ -439,8 +441,8 @@ Wall time: 26.3 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 25s, sys: 112 ms, total: 1min 25s
-Wall time: 1min 25s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.04 s, sys: 8.35 ms, total: 1.04 s
+Wall time: 1.04 s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_19_1.png" src="_images/T1mapping_QIBAv1_19_1.png" />
@@ -458,8 +460,8 @@ Wall time: 1min 25s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 213 ms, sys: 56.1 ms, total: 269 ms
-Wall time: 141 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 196 ms, sys: 0 ns, total: 196 ms
+Wall time: 196 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_21_1.png" src="_images/T1mapping_QIBAv1_21_1.png" />
