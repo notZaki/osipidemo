@@ -266,8 +266,8 @@ However, unlike QIBA v1, the v2 phantom has noise with <span class="math notrans
 <p>Let’s download and load the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">osipi.wrappers.vfa</span> <span class="kn">import</span> <span class="n">vfa_fit</span><span class="p">,</span> <span class="n">show_maps</span><span class="p">,</span> <span class="n">show_error_maps</span>
-<span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span><span class="p">,</span> <span class="n">percenterror</span><span class="p">,</span> <span class="n">make_error_map_gif</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">osipi.wrappers.vfa</span> <span class="kn">import</span> <span class="n">vfa_fit</span>
+<span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span><span class="p">,</span> <span class="n">make_error_map_gif</span>
 
 <span class="n">datafolder</span> <span class="o">=</span> <span class="s2">&quot;./data&quot;</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">datafolder</span><span class="p">):</span>
@@ -298,10 +298,6 @@ To speed up the fits, only a single voxel from each block will be selected:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LINEAR LEAST SQUARES&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LLS - McGill&quot;</span><span class="p">)</span>
-<span class="o">%</span><span class="k">time</span> mcgill_lls = vfa_fit(author = &quot;mcgill&quot;, fittype = &quot;linear&quot;, data = vfadata)
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LLS - Edinburgh&quot;</span><span class="p">)</span>
 <span class="o">%</span><span class="k">time</span> edinburgh_lls = vfa_fit(author = &quot;edinburgh&quot;, fittype = &quot;linear&quot;, data = vfadata)
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
@@ -310,12 +306,12 @@ To speed up the fits, only a single voxel from each block will be selected:</p>
 <span class="o">%</span><span class="k">time</span> sydney_lls = vfa_fit(author = &quot;sydney&quot;, fittype = &quot;linear&quot;, data = vfadata)
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========================&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NON-LINEAR LEAST SQUARES&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LLS - McGill&quot;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">time</span> mcgill_lls = vfa_fit(author = &quot;mcgill&quot;, fittype = &quot;linear&quot;, data = vfadata)
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NLS - McGill&quot;</span><span class="p">)</span>
-<span class="o">%</span><span class="k">time</span> mcgill_nls = vfa_fit(author = &quot;mcgill&quot;, fittype = &quot;nonlinear&quot;, data = vfadata)
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========================&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NON-LINEAR LEAST SQUARES&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NLS - Edinburgh&quot;</span><span class="p">)</span>
@@ -325,6 +321,10 @@ To speed up the fits, only a single voxel from each block will be selected:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NLS - Sydney&quot;</span><span class="p">)</span>
 <span class="o">%</span><span class="k">time</span> sydney_nls = vfa_fit(author = &quot;sydney&quot;, fittype = &quot;nonlinear&quot;, data = vfadata)
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NLS - McGill&quot;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">time</span> mcgill_nls = vfa_fit(author = &quot;mcgill&quot;, fittype = &quot;nonlinear&quot;, data = vfadata)
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -332,38 +332,38 @@ To speed up the fits, only a single voxel from each block will be selected:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>========================
 LINEAR LEAST SQUARES
  
-LLS - McGill
-CPU times: user 1.45 ms, sys: 257 µs, total: 1.71 ms
-Wall time: 1.34 ms
- 
 LLS - Edinburgh
-CPU times: user 70.6 ms, sys: 390 µs, total: 71 ms
-Wall time: 66.1 ms
+CPU times: user 33.9 ms, sys: 3.62 ms, total: 37.5 ms
+Wall time: 37.1 ms
  
 LLS - Sydney
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.76 s, sys: 3.6 ms, total: 3.76 s
-Wall time: 3.75 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.97 s, sys: 127 µs, total: 2.97 s
+Wall time: 2.97 s
+ 
+LLS - McGill
+CPU times: user 1.39 ms, sys: 0 ns, total: 1.39 ms
+Wall time: 1.1 ms
  
 ========================
 NON-LINEAR LEAST SQUARES
  
-NLS - McGill
-CPU times: user 6.3 ms, sys: 123 µs, total: 6.42 ms
-Wall time: 5.66 ms
- 
 NLS - Edinburgh
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.33 s, sys: 11.6 ms, total: 2.34 s
-Wall time: 2.33 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.64 s, sys: 4.08 ms, total: 1.64 s
+Wall time: 1.64 s
  
 NLS - Sydney
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.23 s, sys: 3.64 ms, total: 5.23 s
-Wall time: 5.22 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.05 s, sys: 4.14 ms, total: 4.06 s
+Wall time: 4.05 s
+ 
+NLS - McGill
+CPU times: user 4.24 ms, sys: 0 ns, total: 4.24 ms
+Wall time: 3.89 ms
  
 </pre></div>
 </div>
@@ -378,8 +378,30 @@ As a reminder, the noise levels were: <span class="math notranslate nohighlight"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2272</span><span class="o">/</span><span class="mf">1737234500.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">drawfunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">idx</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">returnfig</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">make_error_map_gif</span><span class="p">(</span><span class="n">drawfunc</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;./images/mcgill_lls_error.gif&quot;</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/osipi/utils/nb.py</span> in <span class="ni">make_error_map_gif</span><span class="nt">(drawfunc, filename, title)</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span>   <span class="n">figs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span>   <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]:</span>
+<span class="ne">---&gt; </span><span class="mi">35</span>       <span class="n">figs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">drawfunc</span><span class="p">(</span><span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>   <span class="n">figs2gif</span><span class="p">(</span><span class="n">figs</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span>   <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+
+<span class="nn">/tmp/ipykernel_2272/1737234500.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(idx, title)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">drawfunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">idx</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">returnfig</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">make_error_map_gif</span><span class="p">(</span><span class="n">drawfunc</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;./images/mcgill_lls_error.gif&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;show_error_maps&#39; is not defined
+</pre></div>
 </div>
-<p><img alt="McGill LLS Error" src="_images/mcgill_lls_error.gif" /></p>
+</div>
+</div>
+<p><img alt="McGill LLS Error" src="images/mcgill_lls_error.gif" /></p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>

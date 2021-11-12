@@ -317,7 +317,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">osipi.wrappers.vfa</span> <span class="kn">import</span> <span class="n">vfa_fit</span><span class="p">,</span> <span class="n">show_maps</span><span class="p">,</span> <span class="n">show_error_maps</span>
-<span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span><span class="p">,</span> <span class="n">percenterror</span>
+<span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span>
 
 <span class="n">datafolder</span> <span class="o">=</span> <span class="s2">&quot;./data&quot;</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">datafolder</span><span class="p">):</span>
@@ -326,14 +326,12 @@
 <span class="n">vfafile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datafolder</span><span class="p">,</span> <span class="s2">&quot;vfadata.mat&quot;</span><span class="p">)</span>
 <span class="n">download_osf</span><span class="p">(</span><span class="s2">&quot;https://osf.io/jzu4k/download&quot;</span><span class="p">,</span> <span class="n">vfafile</span><span class="p">)</span>
 <span class="n">vfadata</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">vfafile</span><span class="p">)</span>
-<span class="n">vfadata</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">signal</span><span class="p">[::</span><span class="mi">10</span><span class="p">,</span> <span class="p">::</span><span class="mi">10</span><span class="p">,</span> <span class="p">:]</span>
-<span class="n">vfadata</span><span class="o">.</span><span class="n">M0</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">M0</span><span class="p">[::</span><span class="mi">10</span><span class="p">,</span> <span class="p">::</span><span class="mi">10</span><span class="p">]</span>
-<span class="n">vfadata</span><span class="o">.</span><span class="n">T1</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">T1</span><span class="p">[::</span><span class="mi">10</span><span class="p">,</span> <span class="p">::</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>The QIBAv1 phantom consists of a 2D grid containing 7 <span class="math notranslate nohighlight">\(M_0\)</span> values, and 15 <span class="math notranslate nohighlight">\(T_1\)</span> values.
+Each parameter combination occupies 10x10 voxels, so the total phantom dimension is 70x150 voxels.
 The ground truth is show below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -360,8 +358,8 @@ The ground truth is show below:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 158 ms, sys: 4.08 ms, total: 162 ms
-Wall time: 157 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 749 ms, sys: 45.8 ms, total: 795 ms
+Wall time: 721 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_9_1.png" src="_images/T1mapping_QIBAv1_9_1.png" />
@@ -379,8 +377,8 @@ Wall time: 157 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 851 ms, sys: 3.64 ms, total: 855 ms
-Wall time: 852 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 48.8 s, sys: 28.8 ms, total: 48.8 s
+Wall time: 48.8 s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_11_1.png" src="_images/T1mapping_QIBAv1_11_1.png" />
@@ -398,8 +396,8 @@ Wall time: 852 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 145 ms, sys: 13 ms, total: 158 ms
-Wall time: 142 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 112 ms, sys: 0 ns, total: 112 ms
+Wall time: 112 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_13_1.png" src="_images/T1mapping_QIBAv1_13_1.png" />
@@ -422,8 +420,8 @@ Wall time: 142 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 400 ms, sys: 7.71 ms, total: 408 ms
-Wall time: 409 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 19 s, sys: 11.9 ms, total: 19.1 s
+Wall time: 19.1 s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_17_1.png" src="_images/T1mapping_QIBAv1_17_1.png" />
@@ -441,8 +439,8 @@ Wall time: 409 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.04 s, sys: 8.35 ms, total: 1.04 s
-Wall time: 1.04 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 6s, sys: 79.9 ms, total: 1min 6s
+Wall time: 1min 6s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_19_1.png" src="_images/T1mapping_QIBAv1_19_1.png" />
@@ -460,8 +458,8 @@ Wall time: 1.04 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 196 ms, sys: 0 ns, total: 196 ms
-Wall time: 196 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 180 ms, sys: 64 ms, total: 244 ms
+Wall time: 124 ms
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_21_1.png" src="_images/T1mapping_QIBAv1_21_1.png" />
