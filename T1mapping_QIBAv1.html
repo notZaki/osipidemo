@@ -290,28 +290,6 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#percent-error-maps">
-   Percent error maps
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Linear least-squares
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Non-linear least squares
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linear-vs-non-linear-fitting">
-     Linear vs Non-linear fitting
-    </a>
-   </li>
-  </ul>
- </li>
 </ul>
 
             </nav>
@@ -325,37 +303,35 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="qiba-v1">
 <h1>QIBA v1<a class="headerlink" href="#qiba-v1" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">osipi.wrappers.vfa</span> <span class="kn">import</span> <span class="n">vfa_fit</span><span class="p">,</span> <span class="n">show_maps</span><span class="p">,</span> <span class="n">show_error_maps</span>
-<span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span><span class="p">,</span> <span class="n">percenterror</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;https://gist.github.com/notZaki/8bfb049230e307f4432fd68d24c603a1/raw/c0baa2a1c55afdf1764b26ee2ebeb1cbf26d8d98/pltstyle&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>The following tests are on the <a class="reference external" href="https://sites.duke.edu/dblab/qibacontent/">QIBA</a> v1 phantom.</p>
+<p>First, let’s download the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datafolder</span> <span class="o">=</span> <span class="s2">&quot;./data&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">osipi.wrappers.vfa</span> <span class="kn">import</span> <span class="n">vfa_fit</span><span class="p">,</span> <span class="n">show_maps</span><span class="p">,</span> <span class="n">show_error_maps</span>
+<span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span><span class="p">,</span> <span class="n">percenterror</span>
+
+<span class="n">datafolder</span> <span class="o">=</span> <span class="s2">&quot;./data&quot;</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">datafolder</span><span class="p">):</span>
   <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">datafolder</span><span class="p">)</span>
 
 <span class="n">vfafile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datafolder</span><span class="p">,</span> <span class="s2">&quot;vfadata.mat&quot;</span><span class="p">)</span>
 <span class="n">download_osf</span><span class="p">(</span><span class="s2">&quot;https://osf.io/jzu4k/download&quot;</span><span class="p">,</span> <span class="n">vfafile</span><span class="p">)</span>
 <span class="n">vfadata</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">vfafile</span><span class="p">)</span>
-<span class="n">vfadata</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">signal</span><span class="p">[::</span><span class="mi">10</span><span class="p">,</span> <span class="p">::</span><span class="mi">10</span><span class="p">,</span> <span class="p">:]</span>
-<span class="n">vfadata</span><span class="o">.</span><span class="n">M0</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">M0</span><span class="p">[::</span><span class="mi">10</span><span class="p">,</span> <span class="p">::</span><span class="mi">10</span><span class="p">]</span>
-<span class="n">vfadata</span><span class="o">.</span><span class="n">T1</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">T1</span><span class="p">[::</span><span class="mi">10</span><span class="p">,</span> <span class="p">::</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The following tests are on the <a class="reference external" href="https://sites.duke.edu/dblab/qibacontent/">QIBA</a> v1 phantom.
-The phantom consists of a 2D grid containing 7 <span class="math notranslate nohighlight">\(M_0\)</span> values, and 15 <span class="math notranslate nohighlight">\(T_1\)</span> values.</p>
-<p>The ground truth is show below:</p>
+<p>The QIBAv1 phantom consists of a 2D grid containing 7 <span class="math notranslate nohighlight">\(M_0\)</span> values, and 15 <span class="math notranslate nohighlight">\(T_1\)</span> values.
+The ground truth is show below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_maps</span><span class="p">(</span><span class="n">M0</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">M0</span><span class="p">,</span> <span class="n">T1</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">T1</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">)</span>
@@ -363,45 +339,27 @@ The phantom consists of a 2D grid containing 7 <span class="math notranslate noh
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/T1mapping_QIBAv1_4_0.png" src="_images/T1mapping_QIBAv1_4_0.png" />
-<img alt="_images/T1mapping_QIBAv1_4_1.png" src="_images/T1mapping_QIBAv1_4_1.png" />
+<img alt="_images/T1mapping_QIBAv1_5_0.png" src="_images/T1mapping_QIBAv1_5_0.png" />
+<img alt="_images/T1mapping_QIBAv1_5_1.png" src="_images/T1mapping_QIBAv1_5_1.png" />
 </div>
 </div>
 <div class="section" id="linear-least-squares">
 <h2>Linear least-squares<a class="headerlink" href="#linear-least-squares" title="Permalink to this headline">¶</a></h2>
+<p>Linear least squares (LLS) can be used to estimate <span class="math notranslate nohighlight">\(M_0\)</span> and <span class="math notranslate nohighlight">\(T_1\)</span>. The advantage of linear least squares is that it is fast, but has poor accuracy and precision at extreme parameter combinations or under heavy noise.</p>
+<p>The next section shows the error maps of the fitted parameters for three implementations. They all tend to give identical error maps, but the computation time is slightly different.</p>
 <div class="section" id="edinburgh">
 <h3>Edinburgh<a class="headerlink" href="#edinburgh" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span> 
 <span class="n">edinburgh_lls</span> <span class="o">=</span> <span class="n">fittedM0</span><span class="p">,</span> <span class="n">fittedT1</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="s2">&quot;edinburgh&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">)</span>
-<span class="n">show_maps</span><span class="p">(</span><span class="n">edinburgh_lls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">);</span> 
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">edinburgh_lls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Edinburgh LLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 166 ms, sys: 13 ms, total: 179 ms
-Wall time: 159 ms
-</pre></div>
-</div>
-<img alt="_images/T1mapping_QIBAv1_7_1.png" src="_images/T1mapping_QIBAv1_7_1.png" />
-<img alt="_images/T1mapping_QIBAv1_7_2.png" src="_images/T1mapping_QIBAv1_7_2.png" />
-</div>
-</div>
-</div>
-<div class="section" id="sydney">
-<h3>Sydney<a class="headerlink" href="#sydney" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="n">sydney_lls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="s2">&quot;sydney&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">)</span>
-<span class="n">show_maps</span><span class="p">(</span><span class="n">sydney_lls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 876 ms, sys: 7 ms, total: 883 ms
-Wall time: 865 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.34 s, sys: 251 ms, total: 1.59 s
+Wall time: 1.31 s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_9_1.png" src="_images/T1mapping_QIBAv1_9_1.png" />
@@ -409,19 +367,19 @@ Wall time: 865 ms
 </div>
 </div>
 </div>
-<div class="section" id="mcgill">
-<h3>McGill<a class="headerlink" href="#mcgill" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
+<div class="section" id="sydney">
+<h3>Sydney<a class="headerlink" href="#sydney" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="n">mcgill_lls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;mcgill&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">)</span>
-<span class="n">show_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">);</span>
+<span class="n">sydney_lls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="s2">&quot;sydney&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">)</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">sydney_lls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Sydney LLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 157 ms, sys: 12.6 ms, total: 170 ms
-Wall time: 148 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 57.9 s, sys: 67 ms, total: 58 s
+Wall time: 57.9 s
 </pre></div>
 </div>
 <img alt="_images/T1mapping_QIBAv1_11_1.png" src="_images/T1mapping_QIBAv1_11_1.png" />
@@ -429,12 +387,34 @@ Wall time: 148 ms
 </div>
 </div>
 </div>
+<div class="section" id="mcgill">
+<h3>McGill<a class="headerlink" href="#mcgill" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">mcgill_lls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;mcgill&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">)</span>
+<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;McGill LLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 119 ms, sys: 33 µs, total: 119 ms
+Wall time: 119 ms
+</pre></div>
+</div>
+<img alt="_images/T1mapping_QIBAv1_13_1.png" src="_images/T1mapping_QIBAv1_13_1.png" />
+<img alt="_images/T1mapping_QIBAv1_13_2.png" src="_images/T1mapping_QIBAv1_13_2.png" />
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="non-linear-least-squares">
 <h2>Non-linear least squares<a class="headerlink" href="#non-linear-least-squares" title="Permalink to this headline">¶</a></h2>
+<p>Non-Linear least squares (NLS) is slower, but should have better accuracy.</p>
+<p>The next section shows the error maps of the fitted parameters for three implementations, this time using NLS. Again, they all tend to give identical error maps, but the computation time is slightly different.</p>
 <div class="section" id="id1">
 <h3>Edinburgh<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">edinburgh_nls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;edinburgh&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;nonlinear&quot;</span><span class="p">)</span>
@@ -443,18 +423,18 @@ Wall time: 148 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 422 ms, sys: 8.32 ms, total: 431 ms
-Wall time: 415 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 26.1 s, sys: 47.4 ms, total: 26.1 s
+Wall time: 26.1 s
 </pre></div>
 </div>
-<img alt="_images/T1mapping_QIBAv1_14_1.png" src="_images/T1mapping_QIBAv1_14_1.png" />
-<img alt="_images/T1mapping_QIBAv1_14_2.png" src="_images/T1mapping_QIBAv1_14_2.png" />
+<img alt="_images/T1mapping_QIBAv1_17_1.png" src="_images/T1mapping_QIBAv1_17_1.png" />
+<img alt="_images/T1mapping_QIBAv1_17_2.png" src="_images/T1mapping_QIBAv1_17_2.png" />
 </div>
 </div>
 </div>
 <div class="section" id="id2">
 <h3>Sydney<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span> 
 <span class="n">sydney_nls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;sydney&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;nonlinear&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">)</span>
@@ -463,18 +443,18 @@ Wall time: 415 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.03 s, sys: 15.5 ms, total: 1.05 s
-Wall time: 1.03 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 22s, sys: 115 ms, total: 1min 22s
+Wall time: 1min 22s
 </pre></div>
 </div>
-<img alt="_images/T1mapping_QIBAv1_16_1.png" src="_images/T1mapping_QIBAv1_16_1.png" />
-<img alt="_images/T1mapping_QIBAv1_16_2.png" src="_images/T1mapping_QIBAv1_16_2.png" />
+<img alt="_images/T1mapping_QIBAv1_19_1.png" src="_images/T1mapping_QIBAv1_19_1.png" />
+<img alt="_images/T1mapping_QIBAv1_19_2.png" src="_images/T1mapping_QIBAv1_19_2.png" />
 </div>
 </div>
 </div>
 <div class="section" id="id3">
 <h3>McGill<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">mcgill_nls</span> <span class="o">=</span> <span class="n">vfa_fit</span><span class="p">(</span><span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;mcgill&quot;</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;nonlinear&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">)</span>
@@ -483,69 +463,15 @@ Wall time: 1.03 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 139 ms, sys: 7.89 ms, total: 147 ms
-Wall time: 136 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 209 ms, sys: 64.2 ms, total: 273 ms
+Wall time: 139 ms
 </pre></div>
 </div>
-<img alt="_images/T1mapping_QIBAv1_18_1.png" src="_images/T1mapping_QIBAv1_18_1.png" />
-<img alt="_images/T1mapping_QIBAv1_18_2.png" src="_images/T1mapping_QIBAv1_18_2.png" />
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="percent-error-maps">
-<h2>Percent error maps<a class="headerlink" href="#percent-error-maps" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id4">
-<h3>Linear least-squares<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">edinburgh_lls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Edinburgh LLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">);</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">sydney_lls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Sydney LLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">);</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;McGill LLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/T1mapping_QIBAv1_21_0.png" src="_images/T1mapping_QIBAv1_21_0.png" />
 <img alt="_images/T1mapping_QIBAv1_21_1.png" src="_images/T1mapping_QIBAv1_21_1.png" />
 <img alt="_images/T1mapping_QIBAv1_21_2.png" src="_images/T1mapping_QIBAv1_21_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="id5">
-<h3>Non-linear least squares<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">edinburgh_nls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Edinburgh NLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">);</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">sydney_nls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Sydney NLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">);</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_nls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;McGill NLS&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/T1mapping_QIBAv1_23_0.png" src="_images/T1mapping_QIBAv1_23_0.png" />
-<img alt="_images/T1mapping_QIBAv1_23_1.png" src="_images/T1mapping_QIBAv1_23_1.png" />
-<img alt="_images/T1mapping_QIBAv1_23_2.png" src="_images/T1mapping_QIBAv1_23_2.png" />
-</div>
-</div>
-</div>
-<div class="section" id="linear-vs-non-linear-fitting">
-<h3>Linear vs Non-linear fitting<a class="headerlink" href="#linear-vs-non-linear-fitting" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">edinburgh_lls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">);</span>
-<span class="n">show_error_maps</span><span class="p">(</span><span class="n">edinburgh_nls</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Non-linear least squares&quot;</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="n">clim</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/T1mapping_QIBAv1_25_0.png" src="_images/T1mapping_QIBAv1_25_0.png" />
-<img alt="_images/T1mapping_QIBAv1_25_1.png" src="_images/T1mapping_QIBAv1_25_1.png" />
-</div>
-</div>
+<p>The McGill implementation is fast because it is not using a traditional NLS fit.</p>
 </div>
 </div>
 </div>

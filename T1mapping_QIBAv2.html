@@ -253,36 +253,60 @@
 <h1>QIBA v2<a class="headerlink" href="#qiba-v2" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">osipi.wrappers.vfa</span> <span class="kn">import</span> <span class="n">vfa_fit</span><span class="p">,</span> <span class="n">show_maps</span><span class="p">,</span> <span class="n">show_error_maps</span>
-<span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span><span class="p">,</span> <span class="n">percenterror</span><span class="p">,</span> <span class="n">make_error_map_gif</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;https://gist.github.com/notZaki/8bfb049230e307f4432fd68d24c603a1/raw/c0baa2a1c55afdf1764b26ee2ebeb1cbf26d8d98/pltstyle&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<p>The following tests are on the <a class="reference external" href="https://sites.duke.edu/dblab/qibacontent/">QIBA</a> v2 phantom<a class="footnote-reference brackets" href="#id2" id="id1">1</a>.
+The phantom is identical to QIBA v1 with the same 2D grid containing 7 <span class="math notranslate nohighlight">\(M_0\)</span> values and 15 <span class="math notranslate nohighlight">\(T_1\)</span> values.
+However, unlike QIBA v1, the v2 phantom has noise with <span class="math notranslate nohighlight">\(\sigma = \{2, 5, 10, 20, 50, 100\}\)</span></p>
+<p>Let’s download and load the data:</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datafolder</span> <span class="o">=</span> <span class="s2">&quot;./data&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">osipi.wrappers.vfa</span> <span class="kn">import</span> <span class="n">vfa_fit</span><span class="p">,</span> <span class="n">show_maps</span><span class="p">,</span> <span class="n">show_error_maps</span>
+<span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span><span class="p">,</span> <span class="n">percenterror</span><span class="p">,</span> <span class="n">make_error_map_gif</span>
+
+<span class="n">datafolder</span> <span class="o">=</span> <span class="s2">&quot;./data&quot;</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">datafolder</span><span class="p">):</span>
   <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">datafolder</span><span class="p">)</span>
 
 <span class="n">vfafile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datafolder</span><span class="p">,</span> <span class="s2">&quot;vfadata_noisy.mat&quot;</span><span class="p">)</span>
 <span class="n">download_osf</span><span class="p">(</span><span class="s2">&quot;https://osf.io/3hwtc/download&quot;</span><span class="p">,</span> <span class="n">vfafile</span><span class="p">)</span>
 <span class="n">vfadata</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">vfafile</span><span class="p">)</span>
-<span class="n">vfadata</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">signal</span><span class="p">[::</span><span class="mi">10</span><span class="p">,</span> <span class="p">::</span><span class="mi">10</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Although the phantom only contains 7x15 parameter combinations, each of these combinations occupies a 10x10 block, so the phantom size is 70x150.
+To speed up the fits, only a single voxel from each block will be selected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vfadata</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">signal</span><span class="p">[::</span><span class="mi">10</span><span class="p">,</span> <span class="p">::</span><span class="mi">10</span><span class="p">,</span> <span class="p">:]</span>
 <span class="n">vfadata</span><span class="o">.</span><span class="n">M0</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">M0</span><span class="p">[::</span><span class="mi">10</span><span class="p">,</span> <span class="p">::</span><span class="mi">10</span><span class="p">]</span>
 <span class="n">vfadata</span><span class="o">.</span><span class="n">T1</span> <span class="o">=</span> <span class="n">vfadata</span><span class="o">.</span><span class="n">T1</span><span class="p">[::</span><span class="mi">10</span><span class="p">,</span> <span class="p">::</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The following tests are on the <a class="reference external" href="https://sites.duke.edu/dblab/qibacontent/">QIBA</a> v2 phantom<a class="footnote-reference brackets" href="#id2" id="id1">1</a>.
-The phantom is identical to QIBA v1 and consists of a 2D grid containing 7 <span class="math notranslate nohighlight">\(M_0\)</span> values, and 15 <span class="math notranslate nohighlight">\(T_1\)</span> values.
-However, unlike QIBA v1, the v2 phantom has noise with <span class="math notranslate nohighlight">\(\sigma = \{2, 5, 10, 20, 50, 100\}\)</span></p>
 <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="nb">next</span> <span class="n">section</span> <span class="n">fits</span> <span class="n">the</span> <span class="n">LLS</span> <span class="ow">and</span> <span class="n">NLS</span> <span class="n">implementation</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">previous</span> <span class="n">notebook</span><span class="p">)</span> <span class="n">on</span> <span class="n">the</span> <span class="n">noisy</span> <span class="n">phantom</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2222/2612603260.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="n">The</span> <span class="nb">next</span> <span class="n">section</span> <span class="n">fits</span> <span class="n">the</span> <span class="n">LLS</span> <span class="ow">and</span> <span class="n">NLS</span> <span class="n">implementation</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">previous</span> <span class="n">notebook</span><span class="p">)</span> <span class="n">on</span> <span class="n">the</span> <span class="n">noisy</span> <span class="n">phantom</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========================&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LINEAR LEAST SQUARES&quot;</span><span class="p">)</span>
@@ -318,56 +342,24 @@ However, unlike QIBA v1, the v2 phantom has noise with <span class="math notrans
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>========================
-LINEAR LEAST SQUARES
- 
-LLS - McGill
-CPU times: user 1.84 ms, sys: 0 ns, total: 1.84 ms
-Wall time: 1.43 ms
- 
-LLS - Edinburgh
-CPU times: user 77 ms, sys: 14.2 ms, total: 91.3 ms
-Wall time: 71.1 ms
- 
-LLS - Sydney
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.78 s, sys: 8.66 ms, total: 3.79 s
-Wall time: 3.77 s
- 
-========================
-NON-LINEAR LEAST SQUARES
- 
-NLS - McGill
-CPU times: user 5.78 ms, sys: 110 µs, total: 5.89 ms
-Wall time: 5.39 ms
- 
-NLS - Edinburgh
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.26 s, sys: 0 ns, total: 2.26 s
-Wall time: 2.26 s
- 
-NLS - Sydney
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.25 s, sys: 0 ns, total: 5.25 s
-Wall time: 5.24 s
- 
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">drawfunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">idx</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>The percent error map for the 6 noise level is shown in the gif below.
+As a reminder, the noise levels were: $\sigma = \{2, 5, 10, 20, 50, 100\}$
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">drawfunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">idx</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n">show_error_maps</span><span class="p">(</span><span class="n">mcgill_lls</span><span class="p">,</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">vfadata</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="p">,</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">make_error_map_gif</span><span class="p">(</span><span class="n">drawfunc</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Linear least squares&quot;</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;./images/mcgill_lls_error.gif&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><img alt="McGill LLS Error" src="_images/mcgill_lls_error.gif" /></p>
+<p><img alt="McGill LLS Error" src="images/mcgill_lls_error.gif" /></p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
