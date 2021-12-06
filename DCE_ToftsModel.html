@@ -313,9 +313,19 @@
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/dicom/__init__.py:53: UserWarning: 
+This code is using an older version of pydicom, which is no longer 
+maintained as of Jan 2017.  You can access the new pydicom features and API 
+by installing `pydicom` from PyPI.
+See &#39;Transitioning to pydicom 1.x&#39; section at pydicom.readthedocs.org 
+for more information.
+
+  warnings.warn(msg)
+</pre></div>
+</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1828</span><span class="o">/</span><span class="mf">1162819452.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2005</span><span class="o">/</span><span class="mf">1162819452.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">osipi.wrappers.tofts</span> <span class="kn">import</span> <span class="n">tofts_fit</span><span class="p">,</span> <span class="n">show_maps</span><span class="p">,</span> <span class="n">show_error_maps</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
@@ -336,13 +346,34 @@
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">math</span>
 
 <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.8.12</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">osipi</span><span class="o">/</span><span class="n">original</span><span class="o">/</span><span class="n">OGJ_OsloU_Norway</span><span class="o">/</span><span class="n">MRImageAnalysis</span><span class="o">/</span><span class="n">io</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">dicom</span><span class="o">,</span> <span class="nn">dicom.UID</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">dicom.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">FileDataset</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">datetime</span><span class="o">,</span> <span class="nn">time</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">os</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">progressbar</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">.MRImage</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">def</span> <span class="nf">loadDicomDir</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">each</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;dicom&#39;
+<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.8.12</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">osipi</span><span class="o">/</span><span class="n">original</span><span class="o">/</span><span class="n">OGJ_OsloU_Norway</span><span class="o">/</span><span class="n">MRImageAnalysis</span><span class="o">/</span><span class="n">MRImage</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;TkAgg&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">matplotlib.widgets</span> <span class="kn">import</span> <span class="n">Slider</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">RadioButtons</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/matplotlib/__init__.py</span> in <span class="ni">use</span><span class="nt">(backend, force)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1142</span>                 <span class="c1"># user does not have the libraries to support their</span>
+<span class="g g-Whitespace">   </span><span class="mi">1143</span>                 <span class="c1"># chosen backend installed.</span>
+<span class="ne">-&gt; </span><span class="mi">1144</span>                 <span class="n">plt</span><span class="o">.</span><span class="n">switch_backend</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1145</span>             <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1146</span>                 <span class="k">if</span> <span class="n">force</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/matplotlib/pyplot.py</span> in <span class="ni">switch_backend</span><span class="nt">(newbackend)</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span>         <span class="k">if</span> <span class="p">(</span><span class="n">current_framework</span> <span class="ow">and</span> <span class="n">required_framework</span>
+<span class="g g-Whitespace">    </span><span class="mi">274</span>                 <span class="ow">and</span> <span class="n">current_framework</span> <span class="o">!=</span> <span class="n">required_framework</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">275</span>             <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span>                 <span class="s2">&quot;Cannot load backend </span><span class="si">{!r}</span><span class="s2"> which requires the </span><span class="si">{!r}</span><span class="s2"> interactive &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span>                 <span class="s2">&quot;framework, as </span><span class="si">{!r}</span><span class="s2"> is currently running&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+
+<span class="ne">ImportError</span>: Cannot load backend &#39;TkAgg&#39; which requires the &#39;tk&#39; interactive framework, as &#39;headless&#39; is currently running
 </pre></div>
 </div>
 </div>

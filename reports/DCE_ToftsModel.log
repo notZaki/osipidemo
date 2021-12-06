@@ -25,8 +25,8 @@ from osipi.utils.nb import download_osf, loadmat
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1828/1162819452.py[0m in [0;36m<module>[0;34m[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+[0;32m/tmp/ipykernel_2005/1162819452.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0;32mfrom[0m [0mosipi[0m[0;34m.[0m[0mwrappers[0m[0;34m.[0m[0mtofts[0m [0;32mimport[0m [0mtofts_fit[0m[0;34m,[0m [0mshow_maps[0m[0;34m,[0m [0mshow_error_maps[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      2[0m [0;32mfrom[0m [0mosipi[0m[0;34m.[0m[0mutils[0m[0;34m.[0m[0mnb[0m [0;32mimport[0m [0mdownload_osf[0m[0;34m,[0m [0mloadmat[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      3[0m [0;34m[0m[0m
@@ -47,12 +47,33 @@ from osipi.utils.nb import download_osf, loadmat
 [1;32m      4[0m [0;32mfrom[0m [0;34m.[0m [0;32mimport[0m [0mmath[0m[0;34m[0m[0;34m[0m[0m
 
 [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/osipi/original/OGJ_OsloU_Norway/MRImageAnalysis/io.py[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0;32mimport[0m [0mdicom[0m[0;34m,[0m [0mdicom[0m[0;34m.[0m[0mUID[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0;32mfrom[0m [0mdicom[0m[0;34m.[0m[0mdataset[0m [0;32mimport[0m [0mDataset[0m[0;34m,[0m [0mFileDataset[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;32mimport[0m [0mdatetime[0m[0;34m,[0m [0mtime[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      5[0m [0;32mimport[0m [0mprogressbar[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0;34m.[0m[0mMRImage[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0;32mdef[0m [0mloadDicomDir[0m[0;34m([0m[0mpath[0m[0;34m,[0m [0meach[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0mload[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'dicom'
-ModuleNotFoundError: No module named 'dicom'
+[0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/osipi/original/OGJ_OsloU_Norway/MRImageAnalysis/MRImage.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m [0mmatplotlib[0m[0;34m.[0m[0muse[0m[0;34m([0m[0;34m'TkAgg'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;32mfrom[0m [0mmatplotlib[0m[0;34m.[0m[0mwidgets[0m [0;32mimport[0m [0mSlider[0m[0;34m,[0m [0mButton[0m[0;34m,[0m [0mRadioButtons[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/matplotlib/__init__.py[0m in [0;36muse[0;34m(backend, force)[0m
+[1;32m   1142[0m                 [0;31m# user does not have the libraries to support their[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1143[0m                 [0;31m# chosen backend installed.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1144[0;31m                 [0mplt[0m[0;34m.[0m[0mswitch_backend[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1145[0m             [0;32mexcept[0m [0mImportError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1146[0m                 [0;32mif[0m [0mforce[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/matplotlib/pyplot.py[0m in [0;36mswitch_backend[0;34m(newbackend)[0m
+[1;32m    273[0m         if (current_framework and required_framework
+[1;32m    274[0m                 and current_framework != required_framework):
+[0;32m--> 275[0;31m             raise ImportError(
+[0m[1;32m    276[0m                 [0;34m"Cannot load backend {!r} which requires the {!r} interactive "[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    277[0m                 "framework, as {!r} is currently running".format(
+
+[0;31mImportError[0m: Cannot load backend 'TkAgg' which requires the 'tk' interactive framework, as 'headless' is currently running
+ImportError: Cannot load backend 'TkAgg' which requires the 'tk' interactive framework, as 'headless' is currently running
 

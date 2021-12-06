@@ -286,17 +286,9 @@ However, unlike QIBA v1, the v2 phantom has noise with <span class="math notrans
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">osipi.wrappers.vfa</span> <span class="kn">import</span> <span class="n">vfa_fit</span><span class="p">,</span> <span class="n">show_error_maps</span>
 <span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span><span class="p">,</span> <span class="n">make_error_map_gif</span>
 
-<span class="n">vfafile</span> <span class="o">=</span> <span class="s2">&quot;./data/vfadata_noisy.mat&quot;</span><span class="p">)</span>
+<span class="n">vfafile</span> <span class="o">=</span> <span class="s2">&quot;./data/vfadata_noisy.mat&quot;</span>
 <span class="n">download_osf</span><span class="p">(</span><span class="s2">&quot;https://osf.io/3hwtc/download&quot;</span><span class="p">,</span> <span class="n">vfafile</span><span class="p">)</span>
 <span class="n">vfadata</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">vfafile</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1947/1064365601.py&quot;</span><span class="gt">, line </span><span class="mi">4</span>
-    <span class="n">vfafile</span> <span class="o">=</span> <span class="s2">&quot;./data/vfadata_noisy.mat&quot;</span><span class="p">)</span>
-                                        <span class="o">^</span>
-<span class="ne">SyntaxError</span>: unmatched &#39;)&#39;
 </pre></div>
 </div>
 </div>
@@ -349,6 +341,46 @@ To speed up the fits, only a single voxel from each block will be selected:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>========================
+LINEAR LEAST SQUARES
+ 
+LLS - Edinburgh
+CPU times: user 28.8 ms, sys: 68 µs, total: 28.8 ms
+Wall time: 28.5 ms
+ 
+LLS - Sydney
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.33 s, sys: 0 ns, total: 2.33 s
+Wall time: 2.33 s
+ 
+LLS - McGill
+CPU times: user 1.18 ms, sys: 0 ns, total: 1.18 ms
+Wall time: 902 µs
+ 
+========================
+NON-LINEAR LEAST SQUARES
+ 
+NLS - Edinburgh
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.26 s, sys: 13.9 ms, total: 1.28 s
+Wall time: 1.27 s
+ 
+NLS - Sydney
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.11 s, sys: 0 ns, total: 3.11 s
+Wall time: 3.11 s
+ 
+NLS - McGill
+CPU times: user 3.24 ms, sys: 0 ns, total: 3.24 ms
+Wall time: 2.96 ms
+ 
+</pre></div>
+</div>
+</div>
 </div>
 <p>The percent error map for the 6 noise level is shown in the gif below.
 As a reminder, the noise levels were: <span class="math notranslate nohighlight">\(\sigma = \{2, 5, 10, 20, 50, 100\}\)</span></p>
@@ -360,7 +392,7 @@ As a reminder, the noise levels were: <span class="math notranslate nohighlight"
 </div>
 </div>
 </div>
-<p><img alt="McGill LLS Error" src="images/mcgill_lls_error.gif" /></p>
+<p><img alt="McGill LLS Error" src="_images/mcgill_lls_error.gif" /></p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
