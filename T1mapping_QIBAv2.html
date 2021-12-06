@@ -53,7 +53,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Guidelines for code contribution" href="guidelines.html" />
+    <link rel="next" title="Tofts Model" href="ToftsModel.html" />
     <link rel="prev" title="QIBA v1" href="T1mapping_QIBAv1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -132,11 +132,28 @@
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="guidelines.html">
-   Guidelines for code contribution
+  <a class="reference internal" href="ToftsModel.html">
+   Tofts Model
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="DCE_ToftsModel.html">
+     QIBA V6 - Tofts Model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="guidelines.html">
+   Guidelines for code contribution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -269,13 +286,17 @@ However, unlike QIBA v1, the v2 phantom has noise with <span class="math notrans
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">osipi.wrappers.vfa</span> <span class="kn">import</span> <span class="n">vfa_fit</span><span class="p">,</span> <span class="n">show_error_maps</span>
 <span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span><span class="p">,</span> <span class="n">make_error_map_gif</span>
 
-<span class="n">datafolder</span> <span class="o">=</span> <span class="s2">&quot;./data&quot;</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">datafolder</span><span class="p">):</span>
-  <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">datafolder</span><span class="p">)</span>
-
-<span class="n">vfafile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datafolder</span><span class="p">,</span> <span class="s2">&quot;vfadata_noisy.mat&quot;</span><span class="p">)</span>
+<span class="n">vfafile</span> <span class="o">=</span> <span class="s2">&quot;./data/vfadata_noisy.mat&quot;</span><span class="p">)</span>
 <span class="n">download_osf</span><span class="p">(</span><span class="s2">&quot;https://osf.io/3hwtc/download&quot;</span><span class="p">,</span> <span class="n">vfafile</span><span class="p">)</span>
 <span class="n">vfadata</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">vfafile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1947/1064365601.py&quot;</span><span class="gt">, line </span><span class="mi">4</span>
+    <span class="n">vfafile</span> <span class="o">=</span> <span class="s2">&quot;./data/vfadata_noisy.mat&quot;</span><span class="p">)</span>
+                                        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: unmatched &#39;)&#39;
 </pre></div>
 </div>
 </div>
@@ -328,46 +349,6 @@ To speed up the fits, only a single voxel from each block will be selected:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>========================
-LINEAR LEAST SQUARES
- 
-LLS - Edinburgh
-CPU times: user 65.5 ms, sys: 3.46 ms, total: 69 ms
-Wall time: 68.4 ms
- 
-LLS - Sydney
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.65 s, sys: 7.16 ms, total: 3.65 s
-Wall time: 3.64 s
- 
-LLS - McGill
-CPU times: user 1.62 ms, sys: 0 ns, total: 1.62 ms
-Wall time: 1.22 ms
- 
-========================
-NON-LINEAR LEAST SQUARES
- 
-NLS - Edinburgh
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.27 s, sys: 3.8 ms, total: 2.28 s
-Wall time: 2.27 s
- 
-NLS - Sydney
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.17 s, sys: 19.9 ms, total: 5.19 s
-Wall time: 5.17 s
- 
-NLS - McGill
-CPU times: user 5.08 ms, sys: 0 ns, total: 5.08 ms
-Wall time: 4.7 ms
- 
-</pre></div>
-</div>
-</div>
 </div>
 <p>The percent error map for the 6 noise level is shown in the gif below.
 As a reminder, the noise levels were: <span class="math notranslate nohighlight">\(\sigma = \{2, 5, 10, 20, 50, 100\}\)</span></p>
@@ -379,7 +360,7 @@ As a reminder, the noise levels were: <span class="math notranslate nohighlight"
 </div>
 </div>
 </div>
-<p><img alt="McGill LLS Error" src="_images/mcgill_lls_error.gif" /></p>
+<p><img alt="McGill LLS Error" src="images/mcgill_lls_error.gif" /></p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -420,10 +401,10 @@ As a reminder, the noise levels were: <span class="math notranslate nohighlight"
             <p class="prev-next-title">QIBA v1</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="guidelines.html" title="next page">
+    <a class='right-next' id="next-link" href="ToftsModel.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Guidelines for code contribution</p>
+        <p class="prev-next-title">Tofts Model</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

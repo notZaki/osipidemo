@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create a copy of the respository and contribute changes &#8212; OSIPI Code</title>
+    <title>Tofts Model &#8212; OSIPI Code</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,6 +42,8 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -51,8 +53,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Creating a Python test file" href="localtests.html" />
-    <link rel="prev" title="Guidelines for code contribution" href="guidelines.html" />
+    <link rel="next" title="QIBA V6 - Tofts Model" href="DCE_ToftsModel.html" />
+    <link rel="prev" title="QIBA v2" href="T1mapping_QIBAv2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -129,11 +131,11 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="ToftsModel.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    Tofts Model
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
@@ -146,18 +148,18 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="guidelines.html">
    Guidelines for code contribution
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="localguide.html">
      Create a copy of the respository and contribute changes
     </a>
    </li>
@@ -214,7 +216,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/localguide.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/ToftsModel.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -239,34 +241,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup-a-local-copy-of-the-repository">
-   Setup a local copy of the repository
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-with-a-specific-branch-of-the-repository">
-   Working with a specific branch of the repository
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#submitting-local-changes-to-the-remote-repository">
-   Submitting local changes to the remote repository
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-resources">
-   Additional Resources
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -275,61 +249,16 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="create-a-copy-of-the-respository-and-contribute-changes">
-<h1>Create a copy of the respository and contribute changes<a class="headerlink" href="#create-a-copy-of-the-respository-and-contribute-changes" title="Permalink to this headline">¶</a></h1>
-<p><em>Note: The guidelines and instructions presented in this document use examples evaluated on the macOS operating system. Where applicable, links referencing documentation to perform the same task on a different operating system has been provided. Please note that these links may not be exhaustive and we welcome users to report any issues they face while working through the steps outlined, on the <a class="reference external" href="https://github.com/OSIPI/TF2.3-CodeLibrary/issues">issue tracker</a> for the repository.</em></p>
-<div class="section" id="setup-a-local-copy-of-the-repository">
-<h2>Setup a local copy of the repository<a class="headerlink" href="#setup-a-local-copy-of-the-repository" title="Permalink to this headline">¶</a></h2>
-<p>To create a local copy of the repository, navigate to the respository located at <a class="reference external" href="https://github.com/OSIPI/TF2.3-CodeLibrary">OSIPI DCE/DSC Code Library</a>, and use the repository url from the <strong>CODE</strong> drop down menu (shown in the figure below).
-<img alt="clone repo" src="_images/repo_urlcopy.png" /></p>
-<p>On the local computer, open the terminal application and navigate to the folder where you would like the repository to be located. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> is then used to clone a local copy of the repository..</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$git clone https://github.com/OSIPI/DCE-DSC-MRI_CodeCollection.git
-</pre></div>
-</div>
-<p>Now you will have a local copy wherein any additions, modifications or deletions made would remain local to your computer and not immediately affect the repository housed on GitHub. To obtain information about the repository enter</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$git status
-</pre></div>
-</div>
-<p>The output will look something similar to</p>
-<p><img alt="Clone Repo Status" src="_images/gitstatus_clonerepo.png" /></p>
-</div>
-<div class="section" id="working-with-a-specific-branch-of-the-repository">
-<h2>Working with a specific branch of the repository<a class="headerlink" href="#working-with-a-specific-branch-of-the-repository" title="Permalink to this headline">¶</a></h2>
-<p>The <strong>master</strong> branch of the repository is checked out initially by default. To switch to a specific branch - let’s say the branch name is <strong>OsipiTaskForce</strong>, use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> as follows.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$git checkout -b OsipiTaskForce
-</pre></div>
-</div>
-<p>Branching in Git is a powerful tool when working on new or developmental features of a project. Specific to Task Force 2.3, each milestone / deliverable will have a unique branch named <strong>Milestone-X / Deliverable-X</strong>.</p>
-<p>While working on a new feature for a particular milestone/deliverable, it is encouraged to check out a new branch during its development and generate a pull request on GitHub. This will enable the feature branch (compare) to be merged into <strong>Milestone-X / Deliverable-X</strong> (base).</p>
-</div>
-<div class="section" id="submitting-local-changes-to-the-remote-repository">
-<h2>Submitting local changes to the remote repository<a class="headerlink" href="#submitting-local-changes-to-the-remote-repository" title="Permalink to this headline">¶</a></h2>
-<p>New files created within the local version of the repository will show up as <em>untracked</em> files unless explicitly added to the repository.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$git add new_file_in_repository
-</pre></div>
-</div>
-<p>The changes made to the <em>tracked</em> files are then commited to the local repository before being pushed to the remote repository on GitHub.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$git commit -m &quot;Commit message&quot;
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> commits changes made to all <em>tracked</em> files. At this point, these changes are still only reflected on the checked out branch of the local repository. For these changes to be reflected on the remote repository on GitHub, the local changes have to be pused. If performing <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> for the first time on a new branch, the upstream connection has to be established with the remote location by the following command</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$git push --set-upstream origin OsipiTaskForce
-</pre></div>
-</div>
-<p>where <strong>OsipiTaskForce</strong> is the new branch as specified in the earlier examples. If the upstream connection has already been established then a simple</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$git push
-</pre></div>
-</div>
-<p>command is sufficient for the local changes ot be reflected on the remote repository.</p>
-</div>
-<div class="section" id="additional-resources">
-<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p><a class="reference external" href="https://docs.github.com/en/free-pro-team&#64;latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository">Cloning a repository across different Operating Systems</a></p></li>
-<li><p><a class="reference external" href="https://docs.github.com/en/free-pro-team&#64;latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests">Working with Pull Requests</a></p></li>
-<li><p><a class="reference external" href="https://docs.github.com/en/free-pro-team&#64;latest/github/managing-your-work-on-github/creating-an-issue">Using the Issue Tracker</a></p></li>
-<li><p><a class="reference external" href="https://training.github.com/downloads/github-git-cheat-sheet.pdf">Git cheat sheet</a></p></li>
-</ol>
+  <div class="tex2jax_ignore mathjax_ignore section" id="tofts-model">
+<h1>Tofts Model<a class="headerlink" href="#tofts-model" title="Permalink to this headline">¶</a></h1>
+<p>The Tofts model describes has the following form:</p>
+<div class="math notranslate nohighlight">
+\[
+c(t) = K^{trans} \cdot c_a(t) \ast \exp(-k_{ep} \cdot t)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(c(t)\)</span> is the tracer concentration in the tissue of interest, <span class="math notranslate nohighlight">\(c_a(t)\)</span> is the arterial input function, <span class="math notranslate nohighlight">\(t\)</span> is time, and <span class="math notranslate nohighlight">\(\ast\)</span> denotes the convolution operator.
+The fitting parameters are the transfer constant <span class="math notranslate nohighlight">\(K^{trans}\)</span> and the rate constant <span class="math notranslate nohighlight">\(k_{ep}\)</span> which is also equal to <span class="math notranslate nohighlight">\(K^{trans}/v_e}\)</span> where <span class="math notranslate nohighlight">\(v_e\)</span> is the extravascular extracellular space.</p>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -358,17 +287,17 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="guidelines.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="T1mapping_QIBAv2.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Guidelines for code contribution</p>
+            <p class="prev-next-title">QIBA v2</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="localtests.html" title="next page">
+    <a class='right-next' id="next-link" href="DCE_ToftsModel.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Creating a Python test file</p>
+        <p class="prev-next-title">QIBA V6 - Tofts Model</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
