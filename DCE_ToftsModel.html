@@ -361,8 +361,8 @@ for more information.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 97.2 ms, sys: 65 µs, total: 97.3 ms
-Wall time: 96.7 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 92.3 ms, sys: 514 µs, total: 92.9 ms
+Wall time: 93.3 ms
 </pre></div>
 </div>
 <img alt="_images/DCE_ToftsModel_8_1.png" src="_images/DCE_ToftsModel_8_1.png" />
@@ -383,8 +383,8 @@ To use the future default and silence this warning we advise to pass `rcond=None
   B = np.linalg.lstsq(A, signal)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 90.2 ms, sys: 12.9 ms, total: 103 ms
-Wall time: 91.1 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 75.2 ms, sys: 8.4 ms, total: 83.6 ms
+Wall time: 80.3 ms
 </pre></div>
 </div>
 <img alt="_images/DCE_ToftsModel_10_2.png" src="_images/DCE_ToftsModel_10_2.png" />
@@ -395,7 +395,7 @@ Wall time: 91.1 ms
 <h3>Non-linear least squares<a class="headerlink" href="#non-linear-least-squares" title="Permalink to this headline">¶</a></h3>
 <p>Non-linear least squares fitting is slower, but should be more robust to noise. However, as the next section shows, the accuracy can be substantially different between implementations.</p>
 <p><strong>Nonlinear implementation 1</strong></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">fits</span> <span class="o">=</span> <span class="n">tofts_fit</span><span class="p">(</span><span class="s2">&quot;oslo&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dcedata</span><span class="p">,</span> <span class="n">fittype</span> <span class="o">=</span> <span class="s2">&quot;nonlinear&quot;</span><span class="p">)</span>
@@ -404,15 +404,15 @@ Wall time: 91.1 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 730 ms, sys: 0 ns, total: 730 ms
-Wall time: 730 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 504 ms, sys: 0 ns, total: 504 ms
+Wall time: 505 ms
 </pre></div>
 </div>
 <img alt="_images/DCE_ToftsModel_12_1.png" src="_images/DCE_ToftsModel_12_1.png" />
 </div>
 </div>
 <p><strong>Nonlinear implementation 2</strong></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">fits</span> <span class="o">=</span> <span class="n">tofts_fit</span><span class="p">(</span><span class="s2">&quot;edinburgh1&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dcedata</span><span class="p">)</span>
@@ -421,15 +421,15 @@ Wall time: 730 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 708 ms, sys: 3.29 ms, total: 711 ms
-Wall time: 712 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 562 ms, sys: 99 µs, total: 562 ms
+Wall time: 561 ms
 </pre></div>
 </div>
 <img alt="_images/DCE_ToftsModel_14_1.png" src="_images/DCE_ToftsModel_14_1.png" />
 </div>
 </div>
 <p><strong>Nonlinear implementation 3</strong></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">fits</span> <span class="o">=</span> <span class="n">tofts_fit</span><span class="p">(</span><span class="s2">&quot;edinburgh2&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dcedata</span><span class="p">)</span>
@@ -438,15 +438,15 @@ Wall time: 712 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.27 s, sys: 7.62 ms, total: 1.28 s
-Wall time: 1.28 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.04 s, sys: 49 µs, total: 1.04 s
+Wall time: 1.04 s
 </pre></div>
 </div>
 <img alt="_images/DCE_ToftsModel_16_1.png" src="_images/DCE_ToftsModel_16_1.png" />
 </div>
 </div>
 <p><strong>Nonlinear implementation 4</strong></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">fits</span> <span class="o">=</span> <span class="n">tofts_fit</span><span class="p">(</span><span class="s2">&quot;sydney&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dcedata</span><span class="p">)</span>
@@ -455,8 +455,8 @@ Wall time: 1.28 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.06 s, sys: 3.58 ms, total: 1.07 s
-Wall time: 1.06 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 874 ms, sys: 11.6 ms, total: 886 ms
+Wall time: 887 ms
 </pre></div>
 </div>
 <img alt="_images/DCE_ToftsModel_18_1.png" src="_images/DCE_ToftsModel_18_1.png" />
@@ -486,62 +486,58 @@ Wall time: 1.06 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    0.4s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   4 out of   4 | elapsed:    0.6s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   4 out of   4 | elapsed:    0.6s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.8s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   6 out of   6 | elapsed:    1.0s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.9s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   6 out of   6 | elapsed:    1.1s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    1.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   8 out of   8 | elapsed:    1.2s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    1.2s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   9 out of   9 | elapsed:    1.4s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    1.5s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   8 out of   8 | elapsed:    1.4s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   9 out of   9 | elapsed:    1.6s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  11 out of  11 | elapsed:    2.3s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  12 out of  12 | elapsed:    2.4s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  13 out of  13 | elapsed:    2.5s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    1.8s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  14 out of  14 | elapsed:    2.6s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  15 out of  15 | elapsed:    2.6s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  11 out of  11 | elapsed:    2.7s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  12 out of  12 | elapsed:    2.8s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  13 out of  13 | elapsed:    2.9s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  16 out of  16 | elapsed:    5.2s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  17 out of  17 | elapsed:    5.2s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  18 out of  18 | elapsed:    5.3s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  14 out of  14 | elapsed:    3.0s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  15 out of  15 | elapsed:    3.1s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  19 out of  19 | elapsed:    5.5s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  20 out of  20 | elapsed:    5.6s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  16 out of  16 | elapsed:    6.1s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  17 out of  17 | elapsed:    6.2s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  18 out of  18 | elapsed:    6.2s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  21 out of  21 | elapsed:    8.1s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  22 out of  22 | elapsed:    8.1s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  23 out of  23 | elapsed:    8.2s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  24 out of  24 | elapsed:    8.2s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  19 out of  19 | elapsed:    6.4s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  20 out of  20 | elapsed:    6.5s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  25 out of  25 | elapsed:    8.3s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  21 out of  21 | elapsed:    9.5s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  22 out of  22 | elapsed:    9.5s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  23 out of  23 | elapsed:    9.6s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  26 out of  26 | elapsed:   10.8s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  27 out of  27 | elapsed:   10.8s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  28 out of  28 | elapsed:   10.9s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  29 out of  29 | elapsed:   11.0s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  24 out of  24 | elapsed:    9.7s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  25 out of  25 | elapsed:    9.8s remaining:    0.0s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  26 out of  26 | elapsed:   12.7s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  27 out of  27 | elapsed:   12.8s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  28 out of  28 | elapsed:   12.8s remaining:    0.0s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  29 out of  29 | elapsed:   12.9s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  30 out of  30 | elapsed:   13.0s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  30 out of  30 | elapsed:   13.0s finished
-CPU times: user 13.6 s, sys: 317 ms, total: 13.9 s
-Wall time: 13.4 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  30 out of  30 | elapsed:   11.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  30 out of  30 | elapsed:   11.0s finished
+CPU times: user 11.5 s, sys: 252 ms, total: 11.7 s
+Wall time: 11.3 s
 </pre></div>
 </div>
 </div>
