@@ -306,9 +306,6 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">osipi.wrappers.tofts</span> <span class="kn">import</span> <span class="n">tofts_fit</span><span class="p">,</span> <span class="n">show_maps</span><span class="p">,</span> <span class="n">show_error_maps</span>
 <span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span>
-
-<span class="c1"># One of the implementations (oslo) overrides the notebook plots, so we need this cell magic</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline 
 </pre></div>
 </div>
 </div>
@@ -364,8 +361,8 @@ for more information.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 59.5 ms, sys: 3.42 ms, total: 63 ms
-Wall time: 62.6 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 80.7 ms, sys: 3.59 ms, total: 84.3 ms
+Wall time: 83.6 ms
 </pre></div>
 </div>
 <img alt="_images/DCE_ToftsModel_8_1.png" src="_images/DCE_ToftsModel_8_1.png" />
@@ -381,110 +378,16 @@ Wall time: 62.6 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |                              |   0% ETA:  --:--:--
-</pre></div>
-</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/osipi/original/OGJ_OsloU_Norway/MRImageAnalysis/DCE/Analyze.py:264: FutureWarning: `rcond` parameter will change to the default of machine precision times ``max(M, N)`` where M and N are the input matrix dimensions.
 To use the future default and silence this warning we advise to pass `rcond=None`, to keep using the old, explicitly pass `rcond=-1`.
   B = np.linalg.lstsq(A, signal)
- Calculating slice 1/1     |#                              |   3% ETA:  0:00:00
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |##                             |   6% ETA:  0:00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 89.9 ms, sys: 0 ns, total: 89.9 ms
+Wall time: 89.5 ms
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |###                            |  10% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |####                           |  13% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |#####                          |  16% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |######                         |  20% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |#######                        |  23% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |########                       |  26% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |#########                      |  30% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |##########                     |  33% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |###########                    |  36% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |############                   |  40% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |#############                  |  43% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |##############                 |  46% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |###############                |  50% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |################               |  53% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |#################              |  56% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |##################             |  60% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |###################            |  63% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |####################           |  66% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |#####################          |  70% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |######################         |  73% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |#######################        |  76% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |########################       |  80% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |#########################      |  83% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |##########################     |  86% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |###########################    |  90% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |############################   |  93% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |#############################  |  96% ETA:  0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Calculating slice 1/1     |####################################| Time: 0:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 135 ms, sys: 0 ns, total: 135 ms
-Wall time: 134 ms
-</pre></div>
-</div>
-<img alt="_images/DCE_ToftsModel_10_33.png" src="_images/DCE_ToftsModel_10_33.png" />
+<img alt="_images/DCE_ToftsModel_10_2.png" src="_images/DCE_ToftsModel_10_2.png" />
 </div>
 </div>
 </div>
@@ -597,8 +500,8 @@ Wall time: 134 ms
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 278 ms, sys: 15.1 ms, total: 293 ms
-Wall time: 296 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 514 ms, sys: 9.13 ms, total: 523 ms
+Wall time: 510 ms
 </pre></div>
 </div>
 <img alt="_images/DCE_ToftsModel_12_33.png" src="_images/DCE_ToftsModel_12_33.png" />
@@ -614,8 +517,8 @@ Wall time: 296 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 345 ms, sys: 8.19 ms, total: 353 ms
-Wall time: 352 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 536 ms, sys: 7.68 ms, total: 544 ms
+Wall time: 544 ms
 </pre></div>
 </div>
 <img alt="_images/DCE_ToftsModel_14_1.png" src="_images/DCE_ToftsModel_14_1.png" />
@@ -631,8 +534,8 @@ Wall time: 352 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 655 ms, sys: 4.43 ms, total: 660 ms
-Wall time: 660 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.17 s, sys: 0 ns, total: 1.17 s
+Wall time: 1.17 s
 </pre></div>
 </div>
 <img alt="_images/DCE_ToftsModel_16_1.png" src="_images/DCE_ToftsModel_16_1.png" />
@@ -648,8 +551,8 @@ Wall time: 660 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 742 ms, sys: 180 µs, total: 742 ms
-Wall time: 742 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.25 s, sys: 3.66 ms, total: 1.25 s
+Wall time: 1.25 s
 </pre></div>
 </div>
 <img alt="_images/DCE_ToftsModel_18_1.png" src="_images/DCE_ToftsModel_18_1.png" />
@@ -666,8 +569,7 @@ Wall time: 742 ms
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fitting 30 voxels
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.1s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   2 out of   2 | elapsed:    0.1s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.2s remaining:    0.0s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/scipy/optimize/_lsq/trf.py:234: RuntimeWarning: divide by zero encountered in true_divide
@@ -678,55 +580,64 @@ Wall time: 742 ms
   t2 = c / q
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    0.3s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   4 out of   4 | elapsed:    0.4s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   2 out of   2 | elapsed:    0.2s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    0.4s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.6s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   6 out of   6 | elapsed:    0.7s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    0.7s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   4 out of   4 | elapsed:    0.6s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   8 out of   8 | elapsed:    0.9s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   9 out of   9 | elapsed:    1.0s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.9s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    1.1s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   6 out of   6 | elapsed:    1.1s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    1.2s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  11 out of  11 | elapsed:    1.7s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  12 out of  12 | elapsed:    1.7s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  13 out of  13 | elapsed:    1.8s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  14 out of  14 | elapsed:    1.8s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   8 out of   8 | elapsed:    1.4s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   9 out of   9 | elapsed:    1.5s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  15 out of  15 | elapsed:    1.9s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    1.7s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  16 out of  16 | elapsed:    3.7s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  17 out of  17 | elapsed:    3.7s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  18 out of  18 | elapsed:    3.8s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  11 out of  11 | elapsed:    2.6s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  12 out of  12 | elapsed:    2.6s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  13 out of  13 | elapsed:    2.7s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  19 out of  19 | elapsed:    3.9s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  20 out of  20 | elapsed:    4.0s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  14 out of  14 | elapsed:    2.8s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  15 out of  15 | elapsed:    2.9s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  21 out of  21 | elapsed:    5.8s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  22 out of  22 | elapsed:    5.8s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  23 out of  23 | elapsed:    5.8s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  24 out of  24 | elapsed:    5.9s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  25 out of  25 | elapsed:    6.0s remaining:    0.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  16 out of  16 | elapsed:    5.5s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  17 out of  17 | elapsed:    5.6s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  18 out of  18 | elapsed:    5.6s remaining:    0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  26 out of  26 | elapsed:    7.8s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  27 out of  27 | elapsed:    7.8s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  28 out of  28 | elapsed:    7.8s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  29 out of  29 | elapsed:    7.9s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  30 out of  30 | elapsed:    7.9s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done  30 out of  30 | elapsed:    7.9s finished
-CPU times: user 8.22 s, sys: 224 ms, total: 8.44 s
-Wall time: 8.14 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  19 out of  19 | elapsed:    5.8s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  20 out of  20 | elapsed:    5.9s remaining:    0.0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  21 out of  21 | elapsed:    8.3s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  22 out of  22 | elapsed:    8.3s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  23 out of  23 | elapsed:    8.4s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  24 out of  24 | elapsed:    8.5s remaining:    0.0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  25 out of  25 | elapsed:    8.5s remaining:    0.0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  26 out of  26 | elapsed:   11.1s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  27 out of  27 | elapsed:   11.2s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  28 out of  28 | elapsed:   11.2s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  29 out of  29 | elapsed:   11.3s remaining:    0.0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  30 out of  30 | elapsed:   11.4s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  30 out of  30 | elapsed:   11.4s finished
+CPU times: user 12 s, sys: 369 ms, total: 12.4 s
+Wall time: 11.8 s
 </pre></div>
 </div>
 </div>
