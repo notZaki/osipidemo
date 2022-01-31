@@ -41,7 +41,7 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -218,7 +218,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -253,14 +253,24 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Contributors</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="contributors">
@@ -304,6 +314,32 @@
     <tr>
       <th>0</th>
       <td>DCE</td>
+      <td>Bolus arrival time</td>
+      <td>piecewise linear quadratic function</td>
+      <td>Cheong et al (DOI: 10.1088/0031-9155/48/5/403)</td>
+      <td>LEK_UoEdinburgh</td>
+      <td>Lucy Kershaw</td>
+      <td>University of Edinburgh, UK</td>
+      <td>tbd</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>DCE</td>
+      <td>Bolus arrival time</td>
+      <td>fitting Kety (Tofts) model to first third of t...</td>
+      <td>NaN</td>
+      <td>LEK_UoEdinburgh</td>
+      <td>Lucy Kershaw</td>
+      <td>University of Edinburgh, UK</td>
+      <td>tbd</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>DCE</td>
       <td>Concentration to enhancement</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -315,7 +351,7 @@
       <td>NaN</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>3</th>
       <td>DCE</td>
       <td>Concentration to R1</td>
       <td>NaN</td>
@@ -328,7 +364,7 @@
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>4</th>
       <td>DCE</td>
       <td>Concentration to signal</td>
       <td>SPGR</td>
@@ -336,32 +372,6 @@
       <td>LEK_UoEdinburgh</td>
       <td>Lucy Kershaw</td>
       <td>University of Edinburgh, UK</td>
-      <td>tbd</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>DCE</td>
-      <td>Concentration to signal</td>
-      <td>SPGR</td>
-      <td>NaN</td>
-      <td>MB_QBI_UoManchesterUK</td>
-      <td>Michael Berks</td>
-      <td>University of Manchester, UK</td>
-      <td>tbd</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>DCE</td>
-      <td>Concentration to signal</td>
-      <td>SPGR</td>
-      <td>NaN</td>
-      <td>OG_MO_AUMC_ICR_RMH</td>
-      <td>Oliver Gurney-Champion, Matthew Orton</td>
-      <td>Amsterdam University Medical Center, the Nethe...</td>
       <td>tbd</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -380,7 +390,7 @@
       <td>...</td>
     </tr>
     <tr>
-      <th>68</th>
+      <th>70</th>
       <td>DSC</td>
       <td>Leakage correction</td>
       <td>BSW</td>
@@ -393,7 +403,7 @@
       <td>NaN</td>
     </tr>
     <tr>
-      <th>69</th>
+      <th>71</th>
       <td>DSC</td>
       <td>Parameter derivation</td>
       <td>CBV,CBF,MTT</td>
@@ -406,7 +416,7 @@
       <td>NaN</td>
     </tr>
     <tr>
-      <th>70</th>
+      <th>72</th>
       <td>DSC</td>
       <td>Parameter derivation</td>
       <td>CBV,CBF,MTT</td>
@@ -419,7 +429,7 @@
       <td>NaN</td>
     </tr>
     <tr>
-      <th>71</th>
+      <th>73</th>
       <td>DSC</td>
       <td>Signal to deltaR2*</td>
       <td>single echo, dual echo</td>
@@ -432,7 +442,7 @@
       <td>NaN</td>
     </tr>
     <tr>
-      <th>72</th>
+      <th>74</th>
       <td>DSC</td>
       <td>Signal to R2*</td>
       <td>dual echo</td>
@@ -446,7 +456,7 @@
     </tr>
   </tbody>
 </table>
-<p>73 rows × 10 columns</p>
+<p>75 rows × 10 columns</p>
 </div></div></div>
 </div>
 </div>
@@ -473,8 +483,8 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="localtests.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -484,19 +494,17 @@
         </div>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By OSIPI<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By OSIPI<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

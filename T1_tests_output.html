@@ -41,7 +41,7 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -219,7 +219,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -254,7 +254,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -313,7 +313,69 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Visualize output T1 mapping tests</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-fit-methods">
+   Linear fit methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#open-cvs-files-with-test-results">
+     Open cvs files with test results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dro-results">
+     DRO results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in-vivo-results">
+     In-vivo results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nonlinear-fit-methods">
+   Nonlinear fit methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Open cvs files with test results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     DRO results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     In-vivo results
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="visualize-output-t1-mapping-tests">
@@ -403,7 +465,83 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/T1_tests_output_7_0.png" src="_images/T1_tests_output_7_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py</span> in <span class="ni">_get_list_axis</span><span class="nt">(self, key, axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1481</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1482</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_take_with_is_copy</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1483</span>         <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/series.py</span> in <span class="ni">_take_with_is_copy</span><span class="nt">(self, indices, axis)</span>
+<span class="g g-Whitespace">    </span><span class="mi">922</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">923</span><span class="s2">         return self.take(indices=indices, axis=axis)</span>
+<span class="g g-Whitespace">    </span><span class="mi">924</span><span class="s2"> </span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/series.py</span> in <span class="ni">take</span><span class="nt">(self, indices, axis, is_copy, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">907</span><span class="s2">         indices = ensure_platform_int(indices)</span>
+<span class="ne">--&gt; </span><span class="mi">908</span><span class="s2">         new_index = self.index.take(indices)</span>
+<span class="g g-Whitespace">    </span><span class="mi">909</span><span class="s2">         new_values = self._values.take(indices)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">take</span><span class="nt">(self, indices, axis, allow_fill, fill_value, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1112</span><span class="s2">         if isinstance(values, np.ndarray):</span>
+<span class="ne">-&gt; </span><span class="mi">1113</span><span class="s2">             taken = algos.take(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1114</span><span class="s2">                 values, indices, allow_fill=allow_fill, fill_value=self._na_value</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/algorithms.py</span> in <span class="ni">take</span><span class="nt">(arr, indices, axis, allow_fill, fill_value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1440</span><span class="s2">         # NumPy style</span>
+<span class="ne">-&gt; </span><span class="mi">1441</span><span class="s2">         result = arr.take(indices, axis=axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1442</span><span class="s2">     return result</span>
+
+<span class="ne">IndexError</span>: cannot do a non-empty take from an empty axes.
+
+<span class="s2">The above exception was the direct cause of the following exception:</span>
+
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="s2">/tmp/ipykernel_1945/536595609.py in &lt;module&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="s2"> r1_Mcgill_DRO = r1_Mcgill[index_list]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="s2"> r1_ST_DRO = r1_ST[index_list]</span>
+<span class="ne">----&gt; </span><span class="mi">7</span><span class="s2"> r1_OG_DRO = r1_OG[index_list]</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="s2"> </span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span><span class="s2"> diff_MJT = r1_MJT_DRO - ref_DRO</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/series.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">983</span><span class="s2">             return self._get_values(key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">984</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">985</span><span class="s2">         return self._get_with(key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">986</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">987</span><span class="s2">     def _get_with(self, key):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/series.py</span> in <span class="ni">_get_with</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1020</span><span class="s2">                 return self.loc[key]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1021</span><span class="s2">             else:</span>
+<span class="ne">-&gt; </span><span class="mi">1022</span><span class="s2">                 return self.iloc[key]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span><span class="s2">         # handle the dup indexing case GH#4246</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">965</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">966</span><span class="s2">             maybe_callable = com.apply_if_callable(key, self.obj)</span>
+<span class="ne">--&gt; </span><span class="mi">967</span><span class="s2">             return self._getitem_axis(maybe_callable, axis=axis)</span>
+<span class="g g-Whitespace">    </span><span class="mi">968</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">969</span><span class="s2">     def _is_scalar_access(self, key: tuple):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py</span> in <span class="ni">_getitem_axis</span><span class="nt">(self, key, axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1509</span><span class="s2">         # a list of integers</span>
+<span class="g g-Whitespace">   </span><span class="mi">1510</span><span class="s2">         elif is_list_like_indexer(key):</span>
+<span class="ne">-&gt; </span><span class="mi">1511</span><span class="s2">             return self._get_list_axis(key, axis=axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1512</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1513</span><span class="s2">         # a single integer</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py</span> in <span class="ni">_get_list_axis</span><span class="nt">(self, key, axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1483</span><span class="s2">         except IndexError as err:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1484</span><span class="s2">             # re-raise with different error message</span>
+<span class="ne">-&gt; </span><span class="mi">1485</span><span class="s2">             raise IndexError(&quot;positional indexers are out-of-bounds&quot;) from err</span>
+<span class="g g-Whitespace">   </span><span class="mi">1486</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1487</span><span class="s2">     def _getitem_axis(self, key, axis: int):</span>
+
+<span class="ne">IndexError</span>: positional indexers are out-of-bounds
+</pre></div>
+</div>
 </div>
 </div>
 <p>For the DRO data, the results between the three linear implementations are almost identical.</p>
@@ -426,9 +564,6 @@
 <span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/T1_tests_output_9_0.png" src="_images/T1_tests_output_9_0.png" />
 </div>
 </div>
 </div>
@@ -487,9 +622,6 @@ Prostate data are for entries 122 to 170</p>
 <span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/T1_tests_output_11_0.png" src="_images/T1_tests_output_11_0.png" />
 </div>
 </div>
 </div>
@@ -551,9 +683,6 @@ Prostate data are for entries 122 to 170</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/T1_tests_output_16_0.png" src="_images/T1_tests_output_16_0.png" />
-</div>
 </div>
 </div>
 <div class="section" id="id3">
@@ -606,9 +735,6 @@ Prostate data are for entries 122 to 170</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/T1_tests_output_18_0.png" src="_images/T1_tests_output_18_0.png" />
-</div>
 </div>
 </div>
 </div>
@@ -636,8 +762,8 @@ Prostate data are for entries 122 to 170</p>
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="vfatestoverview.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -654,19 +780,17 @@ Prostate data are for entries 122 to 170</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By OSIPI<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By OSIPI<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

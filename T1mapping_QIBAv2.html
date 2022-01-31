@@ -41,9 +41,9 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -221,7 +221,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -256,14 +256,24 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>QIBA v2</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="qiba-v2">
@@ -346,18 +356,18 @@ To speed up the fits, only a single voxel from each block will be selected:</p>
 LINEAR LEAST SQUARES
  
 LLS - Edinburgh
-CPU times: user 73.2 ms, sys: 4.64 ms, total: 77.8 ms
-Wall time: 66.2 ms
+CPU times: user 74.1 ms, sys: 14.3 ms, total: 88.5 ms
+Wall time: 78.2 ms
  
 LLS - Sydney
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.8 s, sys: 1.52 ms, total: 3.8 s
-Wall time: 3.79 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.73 s, sys: 0 ns, total: 3.73 s
+Wall time: 3.72 s
  
 LLS - McGill
-CPU times: user 1.46 ms, sys: 79 µs, total: 1.54 ms
-Wall time: 1.19 ms
+CPU times: user 1.33 ms, sys: 0 ns, total: 1.33 ms
+Wall time: 1.03 ms
  
 ========================
 NON-LINEAR LEAST SQUARES
@@ -365,18 +375,18 @@ NON-LINEAR LEAST SQUARES
 NLS - Edinburgh
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.5 s, sys: 209 ms, total: 2.71 s
-Wall time: 2.71 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.31 s, sys: 2.13 ms, total: 2.31 s
+Wall time: 2.3 s
  
 NLS - Sydney
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.31 s, sys: 3.36 ms, total: 5.31 s
-Wall time: 5.3 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.15 s, sys: 11.5 ms, total: 5.16 s
+Wall time: 5.14 s
  
 NLS - McGill
-CPU times: user 5.26 ms, sys: 49 µs, total: 5.31 ms
-Wall time: 4.79 ms
+CPU times: user 607 µs, sys: 3.89 ms, total: 4.49 ms
+Wall time: 4.22 ms
  
 </pre></div>
 </div>
@@ -423,8 +433,8 @@ As a reminder, the noise levels were: <span class="math notranslate nohighlight"
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="T1mapping_QIBAv1.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -441,19 +451,17 @@ As a reminder, the noise levels were: <span class="math notranslate nohighlight"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By OSIPI<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By OSIPI<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
