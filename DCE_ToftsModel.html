@@ -339,20 +339,26 @@
 <p>First, let’s load the required modules and download the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">osipi.wrappers.tofts</span> <span class="kn">import</span> <span class="n">tofts_fit</span><span class="p">,</span> <span class="n">show_maps</span><span class="p">,</span> <span class="n">show_error_maps</span>
-<span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">osipi_code_collection.wrappers.tofts</span> <span class="kn">import</span> <span class="n">tofts_fit</span><span class="p">,</span> <span class="n">show_maps</span><span class="p">,</span> <span class="n">show_error_maps</span>
+<span class="kn">from</span> <span class="nn">osipi_code_collection.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/dicom/__init__.py:53: UserWarning: 
-This code is using an older version of pydicom, which is no longer 
-maintained as of Jan 2017.  You can access the new pydicom features and API 
-by installing `pydicom` from PyPI.
-See &#39;Transitioning to pydicom 1.x&#39; section at pydicom.readthedocs.org 
-for more information.
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1964</span><span class="o">/</span><span class="mf">2891612316.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">osipi_code_collection.wrappers.tofts</span> <span class="kn">import</span> <span class="n">tofts_fit</span><span class="p">,</span> <span class="n">show_maps</span><span class="p">,</span> <span class="n">show_error_maps</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">osipi_code_collection.utils.nb</span> <span class="kn">import</span> <span class="n">download_osf</span><span class="p">,</span> <span class="n">loadmat</span>
 
-  warnings.warn(msg)
+<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.8.12</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">osipi_code_collection</span><span class="o">/</span><span class="n">wrappers</span><span class="o">/</span><span class="n">tofts</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># osipi utilities</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">osipi.utils.nb</span> <span class="kn">import</span> <span class="n">percenterror</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># osipi implementations</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">osipi.original.LEK_UoEdinburghUK.PharmacokineticModelling.models</span> <span class="k">as</span> <span class="nn">edinburgh1</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;osipi&#39;
 </pre></div>
 </div>
 </div>
@@ -377,9 +383,6 @@ for more information.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/DCE_ToftsModel_6_0.png" src="_images/DCE_ToftsModel_6_0.png" />
-</div>
 </div>
 <div class="section" id="model-fitting">
 <h2>Model fitting<a class="headerlink" href="#model-fitting" title="Permalink to this headline">¶</a></h2>
@@ -395,13 +398,6 @@ for more information.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 98.1 ms, sys: 27.8 ms, total: 126 ms
-Wall time: 74.1 ms
-</pre></div>
-</div>
-<img alt="_images/DCE_ToftsModel_8_1.png" src="_images/DCE_ToftsModel_8_1.png" />
-</div>
 </div>
 <p><strong>Linear implementation 2</strong></p>
 <div class="cell tag_hide-input docutils container">
@@ -411,18 +407,6 @@ Wall time: 74.1 ms
 <span class="n">show_error_maps</span><span class="p">(</span><span class="n">fits</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">dcedata</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/osipi/original/OGJ_OsloU_Norway/MRImageAnalysis/DCE/Analyze.py:264: FutureWarning: `rcond` parameter will change to the default of machine precision times ``max(M, N)`` where M and N are the input matrix dimensions.
-To use the future default and silence this warning we advise to pass `rcond=None`, to keep using the old, explicitly pass `rcond=-1`.
-  B = np.linalg.lstsq(A, signal)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 66.8 ms, sys: 371 µs, total: 67.2 ms
-Wall time: 65.7 ms
-</pre></div>
-</div>
-<img alt="_images/DCE_ToftsModel_10_2.png" src="_images/DCE_ToftsModel_10_2.png" />
 </div>
 </div>
 </div>
@@ -438,13 +422,6 @@ Wall time: 65.7 ms
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 303 ms, sys: 0 ns, total: 303 ms
-Wall time: 303 ms
-</pre></div>
-</div>
-<img alt="_images/DCE_ToftsModel_12_1.png" src="_images/DCE_ToftsModel_12_1.png" />
-</div>
 </div>
 <p><strong>Nonlinear implementation 2</strong></p>
 <div class="cell tag_hide-input docutils container">
@@ -454,13 +431,6 @@ Wall time: 303 ms
 <span class="n">show_error_maps</span><span class="p">(</span><span class="n">fits</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">dcedata</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 409 ms, sys: 3.1 ms, total: 412 ms
-Wall time: 411 ms
-</pre></div>
-</div>
-<img alt="_images/DCE_ToftsModel_14_1.png" src="_images/DCE_ToftsModel_14_1.png" />
 </div>
 </div>
 <p><strong>Nonlinear implementation 3</strong></p>
@@ -472,13 +442,6 @@ Wall time: 411 ms
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 728 ms, sys: 159 µs, total: 728 ms
-Wall time: 728 ms
-</pre></div>
-</div>
-<img alt="_images/DCE_ToftsModel_16_1.png" src="_images/DCE_ToftsModel_16_1.png" />
-</div>
 </div>
 <p><strong>Nonlinear implementation 4</strong></p>
 <div class="cell tag_hide-input docutils container">
@@ -489,13 +452,6 @@ Wall time: 728 ms
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 809 ms, sys: 0 ns, total: 809 ms
-Wall time: 808 ms
-</pre></div>
-</div>
-<img alt="_images/DCE_ToftsModel_18_1.png" src="_images/DCE_ToftsModel_18_1.png" />
-</div>
 </div>
 <p><strong>Nonlinear implementation 5</strong></p>
 <div class="cell tag_hide-output tag_hide-input docutils container">
@@ -505,42 +461,12 @@ Wall time: 808 ms
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fitting 30 voxels
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/scipy/optimize/_lsq/trf.py:234: RuntimeWarning: divide by zero encountered in true_divide
-  Delta = norm(x0 * scale_inv / v**0.5)
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/scipy/optimize/_lsq/trf.py:363: RuntimeWarning: invalid value encountered in double_scalars
-  alpha *= Delta / Delta_new
-[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.1s remaining:    0.0s
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/scipy/optimize/_lsq/common.py:49: RuntimeWarning: invalid value encountered in double_scalars
-  t2 = c / q
-[Parallel(n_jobs=1)]: Done   2 out of   2 | elapsed:    0.2s remaining:    0.0s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    0.4s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   4 out of   4 | elapsed:    0.5s remaining:    0.0s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9.98 s, sys: 190 ms, total: 10.2 s
-Wall time: 9.86 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  30 out of  30 | elapsed:    9.7s finished
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_error_maps</span><span class="p">(</span><span class="n">fits</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">dcedata</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">showcbar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/DCE_ToftsModel_21_0.png" src="_images/DCE_ToftsModel_21_0.png" />
 </div>
 </div>
 </div>
