@@ -465,87 +465,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/ops/array_ops.py</span> in <span class="ni">_na_arithmetic_op</span><span class="nt">(left, right, op, is_cmp)</span>
-<span class="g g-Whitespace">    </span><span class="mi">162</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">163</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">164</span>     <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/computation/expressions.py</span> in <span class="ni">evaluate</span><span class="nt">(op, a, b, use_numexpr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span>             <span class="c1"># error: &quot;None&quot; not callable</span>
-<span class="ne">--&gt; </span><span class="mi">239</span>             <span class="k">return</span> <span class="n">_evaluate</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">op_str</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># type: ignore[misc]</span>
-<span class="g g-Whitespace">    </span><span class="mi">240</span>     <span class="k">return</span> <span class="n">_evaluate_standard</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">op_str</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/computation/expressions.py</span> in <span class="ni">_evaluate_standard</span><span class="nt">(op, op_str, a, b)</span>
-<span class="g g-Whitespace">     </span><span class="mi">68</span>         <span class="n">_store_test_result</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">69</span>     <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span> 
-
-<span class="ne">TypeError</span>: unsupported operand type(s) for -: &#39;str&#39; and &#39;float&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1964</span><span class="o">/</span><span class="mf">536595609.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">diff_Mcgill</span> <span class="o">=</span> <span class="n">r1_Mcgill_DRO</span> <span class="o">-</span> <span class="n">ref_DRO</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">diff_ST</span> <span class="o">=</span> <span class="n">r1_ST_DRO</span> <span class="o">-</span> <span class="n">ref_DRO</span>
-<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">diff_OG</span> <span class="o">=</span> <span class="n">r1_OG_DRO</span> <span class="o">-</span> <span class="n">ref_DRO</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> 
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/ops/common.py</span> in <span class="ni">new_method</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">     </span><span class="mi">68</span>         <span class="n">other</span> <span class="o">=</span> <span class="n">item_from_zerodim</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span> 
-<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span> 
-<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="k">return</span> <span class="n">new_method</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/arraylike.py</span> in <span class="ni">__sub__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span>     <span class="nd">@unpack_zerodim_and_defer</span><span class="p">(</span><span class="s2">&quot;__sub__&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">108</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_arith_method</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">109</span> 
-<span class="g g-Whitespace">    </span><span class="mi">110</span>     <span class="nd">@unpack_zerodim_and_defer</span><span class="p">(</span><span class="s2">&quot;__rsub__&quot;</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/series.py</span> in <span class="ni">_arith_method</span><span class="nt">(self, other, op)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5634</span>     <span class="k">def</span> <span class="nf">_arith_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">op</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">5635</span>         <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">align_method_SERIES</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">5636</span>         <span class="k">return</span> <span class="n">base</span><span class="o">.</span><span class="n">IndexOpsMixin</span><span class="o">.</span><span class="n">_arith_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">op</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5637</span> 
-<span class="g g-Whitespace">   </span><span class="mi">5638</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/base.py</span> in <span class="ni">_arith_method</span><span class="nt">(self, other, op)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1293</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1294</span>         <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1295</span>             <span class="n">result</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">arithmetic_op</span><span class="p">(</span><span class="n">lvalues</span><span class="p">,</span> <span class="n">rvalues</span><span class="p">,</span> <span class="n">op</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1296</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1297</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_construct_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">res_name</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/ops/array_ops.py</span> in <span class="ni">arithmetic_op</span><span class="nt">(left, right, op)</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span>         <span class="n">_bool_arith_check</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">221</span> 
-<span class="ne">--&gt; </span><span class="mi">222</span>         <span class="n">res_values</span> <span class="o">=</span> <span class="n">_na_arithmetic_op</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">op</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span> 
-<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="k">return</span> <span class="n">res_values</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/ops/array_ops.py</span> in <span class="ni">_na_arithmetic_op</span><span class="nt">(left, right, op, is_cmp)</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span>             <span class="c1"># Don&#39;t do this for comparisons, as that will handle complex numbers</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span>             <span class="c1">#  incorrectly, see GH#32047</span>
-<span class="ne">--&gt; </span><span class="mi">170</span>             <span class="n">result</span> <span class="o">=</span> <span class="n">_masked_arith_op</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">op</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">172</span>             <span class="k">raise</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/ops/array_ops.py</span> in <span class="ni">_masked_arith_op</span><span class="nt">(x, y, op)</span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span>         <span class="c1"># See GH#5284, GH#5035, GH#19448 for historical reference</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span>         <span class="k">if</span> <span class="n">mask</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-<span class="ne">--&gt; </span><span class="mi">108</span>             <span class="n">result</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="n">xrav</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">yrav</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">109</span> 
-<span class="g g-Whitespace">    </span><span class="mi">110</span>     <span class="k">else</span><span class="p">:</span>
-
-<span class="ne">TypeError</span>: unsupported operand type(s) for -: &#39;str&#39; and &#39;float&#39;
-</pre></div>
-</div>
+<img alt="_images/T1_tests_output_7_0.png" src="_images/T1_tests_output_7_0.png" />
 </div>
 </div>
 <p>For the DRO data, the results between the three linear implementations are almost identical.</p>
@@ -568,6 +488,9 @@
 <span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/T1_tests_output_9_0.png" src="_images/T1_tests_output_9_0.png" />
 </div>
 </div>
 </div>
@@ -626,6 +549,9 @@ Prostate data are for entries 122 to 170</p>
 <span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/T1_tests_output_11_0.png" src="_images/T1_tests_output_11_0.png" />
 </div>
 </div>
 </div>
@@ -687,6 +613,9 @@ Prostate data are for entries 122 to 170</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/T1_tests_output_16_0.png" src="_images/T1_tests_output_16_0.png" />
+</div>
 </div>
 </div>
 <div class="section" id="id3">
@@ -738,6 +667,9 @@ Prostate data are for entries 122 to 170</p>
 <span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/T1_tests_output_18_0.png" src="_images/T1_tests_output_18_0.png" />
 </div>
 </div>
 </div>
