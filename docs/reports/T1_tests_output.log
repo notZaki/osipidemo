@@ -74,7 +74,7 @@ pyplot.show()
 The above exception was the direct cause of the following exception:
 
 [0;31mIndexError[0m                                Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2040/536595609.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_1997/536595609.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      5[0m [0mr1_Mcgill_DRO[0m [0;34m=[0m [0mr1_Mcgill[0m[0;34m[[0m[0mindex_list[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 [1;32m      6[0m [0mr1_ST_DRO[0m [0;34m=[0m [0mr1_ST[0m[0;34m[[0m[0mindex_list[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 7[0;31m [0mr1_OG_DRO[0m [0;34m=[0m [0mr1_OG[0m[0;34m[[0m[0mindex_list[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
